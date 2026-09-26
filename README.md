@@ -249,7 +249,7 @@ JM.diagnose()
 
 ```html
 <polyline points="70,620 -24,620"/>                   <!-- линия: от точки к подписи -->
-<span class="pin" style="--x:70; --y:620">2</span>     <!-- точка на устройстве -->
+<span class="pin" style="--x:70; --y:620">2</span>     <!-- точка на устройстве --> 
 <li class="tag tag-l" style="--x:-24; --y:620">…</li>  <!-- подпись -->
 ```
 
