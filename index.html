@@ -50,10 +50,10 @@
   "logo": "https://jetmedia.example/logo.png",
   "description": "Цифровой официант для ресторанов: AI-рекомендации, мультиязычное меню, оплата со стола, отзывы и аналитика продаж.",
   "makesOffer": [
-    { "@type": "Offer", "name": "Standard", "price": "10", "priceCurrency": "USD",
-      "description": "Аренда устройства, электронное меню, вызов официанта, обслуживание оборудования." },
-    { "@type": "Offer", "name": "Premium", "price": "20", "priceCurrency": "USD",
-      "description": "Заказ и оплата со стола, интеграция с системой ресторана, расширенная аналитика, без сторонней рекламы." }
+    { "@type": "Offer", "name": "Standard", "price": "1900", "priceCurrency": "THB",
+      "description": "Платформа от 1 900 ฿ в месяц за ресторан + от 240 ฿ в месяц за каждое устройство. С рекламой сети JET MEDIA, без рекламы конкурентов." },
+    { "@type": "Offer", "name": "Premium", "price": "3800", "priceCurrency": "THB",
+      "description": "Платформа от 3 800 ฿ в месяц за ресторан + от 480 ฿ в месяц за каждое устройство. Без сторонней рекламы." }
   ]
 }
 </script>
@@ -186,6 +186,13 @@
       <p class="eyebrow" data-i18n="calc.eyebrow">Расчёт для вашего зала</p>
       <h2 data-i18n="calc.h2">Сколько заработает ваш ресторан</h2>
       <p class="sec-sub" data-i18n="calc.sub">Укажите число столиков, гостей и средний чек — расчёт по обоим тарифам обновится сразу.</p>
+
+      <!-- Как считает калькулятор: три правила, числа — из CONFIG -->
+      <ul class="calc-how">
+        <li><b class="num" data-claim="uplift-pair">+6% / +15%</b><span data-i18n="calc.how1">прирост к выручке зала: Standard / Premium</span></li>
+        <li><b data-i18n="calc.how2k">1 столик = 1 устройство</b><span data-i18n="calc.how2">платится каждое устройство, плюс платформа за ресторан</span></li>
+        <li><b class="num" data-tpl="calc.how3k">7 + 5 мес.</b><span data-i18n="calc.how3">год считается по сезонам: низкий — апрель–октябрь, высокий — ноябрь–март</span></li>
+      </ul>
     </header>
 
     <!-- ---------- Калькулятор прибыли ---------- -->
@@ -224,13 +231,15 @@
         </div>
       </div>
 
-      <!-- Сезон влияет и на аренду в расчёте, и на цены в тарифах -->
+      <!-- Сезон влияет и на стоимость в расчёте, и на цены в тарифах.
+           В режиме «Год» переключатель прячется: год считается по обоим сезонам. -->
       <div class="calc-season">
-        <span class="calc-season-label" data-i18n="calc.season">Сезон аренды</span>
-        <div class="seg seg-sm" role="group" aria-label="Сезон">
+        <span class="calc-season-label" data-i18n="calc.season">Сезон</span>
+        <div class="seg seg-sm" role="group" aria-label="Сезон" id="calcSeasonSeg">
           <button type="button" class="seg-btn" data-season="low" data-i18n="price.low">Низкий сезон</button>
           <button type="button" class="seg-btn" data-season="high" data-i18n="price.high">Высокий сезон</button>
         </div>
+        <p class="calc-season-year" id="calcYearNote" data-tpl="calc.yearNote" hidden>За год: 7 мес. низкого сезона и 5 мес. высокого</p>
       </div>
 
       <div class="calc-now">
@@ -244,10 +253,10 @@
           <p class="res-cap" data-i18n="calc.gain">Прирост выручки</p>
           <p class="res-value num" id="rStd">+91 800 ฿</p>
           <div class="res-rows">
-            <p class="res-row"><span data-i18n="calc.saas">Абонентская плата (SaaS)</span><b class="num" id="saasStd">−1 900 ฿</b></p>
-            <p class="res-row"><span data-i18n="calc.devices">Аренда устройств</span><b class="num" id="devStd">−1 920 ฿</b></p>
-            <p class="res-row res-total"><span data-total-label>Итого в месяц</span><b class="num" id="costStd">−3 820 ฿</b></p>
-            <p class="res-row res-net"><span data-i18n="calc.net">Чистый результат</span><b class="num" id="netStd">+87 980 ฿</b></p>
+            <p class="res-row"><span data-i18n="calc.saas">Платформа</span><b class="num" id="saasStd">−1 900 ฿</b></p>
+            <p class="res-row"><span><span data-i18n="calc.devices">Устройства</span> <small class="res-hint num" id="devHintStd">10 × 240 ฿</small></span><b class="num" id="devStd">−2 400 ฿</b></p>
+            <p class="res-row res-total"><span data-total-label>Итого в месяц</span><b class="num" id="costStd">−4 300 ฿</b></p>
+            <p class="res-row res-net"><span data-i18n="calc.net">Чистый результат</span><b class="num" id="netStd">+87 500 ฿</b></p>
           </div>
         </div>
         <div class="res res-pro">
@@ -255,13 +264,18 @@
           <p class="res-cap" data-i18n="calc.gain">Прирост выручки</p>
           <p class="res-value num" id="rPrm">+229 500 ฿</p>
           <div class="res-rows">
-            <p class="res-row"><span data-i18n="calc.saas">Абонентская плата (SaaS)</span><b class="num" id="saasPrm">−3 800 ฿</b></p>
-            <p class="res-row"><span data-i18n="calc.devices">Аренда устройств</span><b class="num" id="devPrm">−3 840 ฿</b></p>
-            <p class="res-row res-total"><span data-total-label>Итого в месяц</span><b class="num" id="costPrm">−7 640 ฿</b></p>
-            <p class="res-row res-net"><span data-i18n="calc.net">Чистый результат</span><b class="num" id="netPrm">+221 860 ฿</b></p>
+            <p class="res-row"><span data-i18n="calc.saas">Платформа</span><b class="num" id="saasPrm">−3 800 ฿</b></p>
+            <p class="res-row"><span><span data-i18n="calc.devices">Устройства</span> <small class="res-hint num" id="devHintPrm">10 × 480 ฿</small></span><b class="num" id="devPrm">−4 800 ฿</b></p>
+            <p class="res-row res-total"><span data-total-label>Итого в месяц</span><b class="num" id="costPrm">−8 600 ฿</b></p>
+            <p class="res-row res-net"><span data-i18n="calc.net">Чистый результат</span><b class="num" id="netPrm">+220 900 ฿</b></p>
           </div>
         </div>
       </div>
+
+      <p class="calc-note">
+        <span data-tpl="calc.note">Разово: подключение — 4 900 ฿. Онлайн-оплата — 0,9% от платежа.</span>
+        <a href="price.html" data-price-page data-i18n="price.open">Открыть прайс-лист</a>
+      </p>
     </div>
   </div>
 </section>
@@ -333,9 +347,10 @@
       <article class="plan reveal">
         <div class="plan-top">
           <h3 class="plan-name">Standard</h3>
-          <p class="plan-k" data-plan-k>SaaS</p>
+          <p class="plan-sub" data-i18n="price.subStd">С рекламой сети JET MEDIA — без рекламы конкурентов</p>
+          <p class="plan-k" data-i18n="price.platformK">Платформа</p>
           <p class="plan-price"><span class="num" id="priceStd">1 900 ฿</span><small><span data-i18n="price.per">в месяц</span></small></p>
-          <p class="plan-example" data-i18n="price.saasNote">Абонентская плата за платформу</p>
+          <p class="plan-example" data-i18n="price.saasNote">за ресторан, не зависит от числа столиков</p>
         </div>
         <ul class="plan-list">
           <li data-i18n="price.s1">Аренда оборудования</li>
@@ -350,8 +365,8 @@
         </ul>
         <div class="plan-devices">
           <p class="plan-k" data-i18n="price.devicesK">Устройства</p>
-          <p class="plan-devices-free"><span data-claim="free-devices">2</span> <span data-i18n="price.freeDevices">устройства — бесплатно</span></p>
-          <p class="plan-devices-price"><span data-i18n="price.then">Далее</span> <b class="num" id="devPriceStd">240 ฿</b> <span data-i18n="price.perDevice">за устройство в месяц</span></p>
+          <p class="plan-devices-price"><b class="num" id="devPriceStd">240 ฿</b> <span data-i18n="price.perDevice">за каждое устройство в месяц</span></p>
+          <p class="plan-calc"><span data-i18n="price.yourHall">Для вашего зала:</span> <span class="num" id="exampleStd">1 900 ฿ + 10 × 240 ฿ = 4 300 ฿</span></p>
         </div>
         <a class="btn btn-line plan-cta" href="#request" data-request-type="install" data-i18n="price.ctaStd">Заказать установку</a>
       </article>
@@ -360,26 +375,36 @@
         <span class="plan-badge" data-i18n="price.badge">Максимум прибыли</span>
         <div class="plan-top">
           <h3 class="plan-name">Premium</h3>
-          <p class="plan-k" data-plan-k>SaaS</p>
+          <p class="plan-sub" data-i18n="price.subPrm">Без сторонней рекламы</p>
+          <p class="plan-k" data-i18n="price.platformK">Платформа</p>
           <p class="plan-price"><span class="num" id="pricePrm">3 800 ฿</span><small><span data-i18n="price.per">в месяц</span></small></p>
-          <p class="plan-example" data-i18n="price.saasNote">Абонентская плата за платформу</p>
+          <p class="plan-example" data-i18n="price.saasNote">за ресторан, не зависит от числа столиков</p>
           <p class="plan-note" data-i18n="price.all">Всё из Standard, плюс:</p>
         </div>
         <ul class="plan-list">
           <li data-i18n="price.p1">Без рекламы сети JET MEDIA</li>
+          <li data-i18n="price.p2">Экран полностью под ваши акции и рекомендации</li>
         </ul>
         <div class="plan-devices">
           <p class="plan-k" data-i18n="price.devicesK">Устройства</p>
-          <p class="plan-devices-free"><span data-claim="free-devices">2</span> <span data-i18n="price.freeDevices">устройства — бесплатно</span></p>
-          <p class="plan-devices-price"><span data-i18n="price.then">Далее</span> <b class="num" id="devPricePrm">480 ฿</b> <span data-i18n="price.perDevice">за устройство в месяц</span></p>
+          <p class="plan-devices-price"><b class="num" id="devPricePrm">480 ฿</b> <span data-i18n="price.perDevice">за каждое устройство в месяц</span></p>
+          <p class="plan-calc"><span data-i18n="price.yourHall">Для вашего зала:</span> <span class="num" id="examplePrm">3 800 ฿ + 10 × 480 ฿ = 8 600 ฿</span></p>
         </div>
         <a class="btn btn-primary plan-cta" href="#request" data-request-type="demo" data-i18n="price.ctaPrm">Заказать демонстрацию</a>
       </article>
     </div>
 
-    <p class="plans-note reveal">
-      <span data-i18n="price.trialA">Первые</span> <span data-claim="trial-months">2</span> <span data-i18n="price.trialB">месяца — бесплатно, включая установку и обучение персонала.</span>
-    </p>
+    <!-- Разовые услуги и прайс-лист. PDF-ссылка меняется вместе с языком сайта -->
+    <div class="plans-note reveal">
+      <div class="plans-terms">
+        <p data-tpl="price.noteSetup">Подключение и настройка — 4 900 ฿ разово: установка устройств, загрузка меню, обучение персонала.</p>
+        <p data-tpl="price.notePay">Онлайн-оплата через JET MEDIA — 0,9% от суммы платежа; комиссия банка — по его тарифу.</p>
+      </div>
+      <div class="plans-actions">
+        <a class="btn btn-line" href="price.html" data-price-page data-i18n="price.open">Открыть прайс-лист</a>
+        <a class="btn btn-primary" href="price-ru.pdf" download="JET-MEDIA-price-RU.pdf" data-price-pdf data-i18n="price.pdf">Скачать PDF</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -481,6 +506,7 @@
   </div>
 </footer>
 
+<script src="config.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>

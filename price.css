@@ -1,0 +1,246 @@
+/* =================================================================
+   JET MEDIA — прайс-лист (price.html)
+   Документ формата A4: светлый лист с тёмной шапкой бренда.
+   На экране лист лежит на фирменном тёмном фоне, в печати и PDF
+   остаётся только сам лист, ровно 210×297 мм.
+   Палитра и шрифты — по брендбуку, как на сайте (styles.css).
+   ================================================================= */
+
+/* ---------------- 1. Токены ---------------- */
+:root{
+  --jet:      #080B17;
+  --blue:     #187BFF;
+  --electric: #46C7FF;
+
+  --ink:      #0B1530;   /* основной текст на светлом листе */
+  --ink-2:    #51607F;   /* второстепенный текст */
+  --rule:     #DCE5F3;   /* линии таблиц */
+  --tint:     #F1F6FE;   /* подложка заголовков таблиц */
+  --paper:    #FFFFFF;
+
+  --display: "Manrope", "Noto Sans Thai", system-ui, sans-serif;
+  --body:    "Inter", "Noto Sans Thai", system-ui, -apple-system, sans-serif;
+}
+
+/* ---------------- 2. База ---------------- */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0; min-height:100vh;
+  background:
+    radial-gradient(60% 40% at 50% 0%, rgba(24,123,255,.22), transparent 70%),
+    var(--jet);
+  color:var(--ink);
+  font-family:var(--body);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,p,ul,dl,dd{ margin:0; }
+ul{ padding:0; list-style:none; }
+img,svg{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; }
+.num{ font-family:var(--display); font-variant-numeric:tabular-nums; letter-spacing:-.01em; }
+
+/* ---------------- 3. Панель над листом ---------------- */
+.bar{
+  position:sticky; top:0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  padding:12px max(16px, calc((100vw - 210mm) / 2));
+  background:rgba(8,11,23,.86);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(70,199,255,.12);
+  color:#EAF1FF; font-size:.88rem;
+}
+.bar-back{ color:#8E9EC2; transition:color .2s; }
+.bar-back:hover{ color:var(--electric); }
+.bar-right{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+
+.lang{ display:flex; gap:2px; padding:3px; border:1px solid rgba(70,199,255,.2); border-radius:100px; }
+.lang-btn{
+  background:none; border:0; cursor:pointer; color:#8E9EC2;
+  padding:6px 11px; border-radius:100px;
+  font-family:var(--display); font-weight:700; font-size:.72rem; letter-spacing:.06em;
+}
+.lang-btn:hover{ color:#EAF1FF; }
+.lang-btn.is-active{ background:rgba(24,123,255,.24); color:var(--electric); }
+
+.bar-btn{
+  display:inline-flex; align-items:center; cursor:pointer;
+  padding:9px 18px; border-radius:100px;
+  border:1px solid rgba(70,199,255,.25); background:rgba(70,199,255,.05); color:#EAF1FF;
+  font-family:var(--display); font-weight:700; font-size:.84rem;
+  transition:border-color .2s, background-color .2s;
+}
+.bar-btn:hover{ border-color:var(--electric); }
+.bar-primary{
+  border-color:transparent; color:#04101F;
+  background:linear-gradient(100deg, var(--blue), var(--electric));
+  box-shadow:0 8px 26px rgba(24,123,255,.35);
+}
+
+/* ---------------- 4. Лист ---------------- */
+.sheet{
+  width:210mm; min-height:297mm; margin:28px auto 56px;
+  background:var(--paper);
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  display:flex; flex-direction:column;
+  font-size:9.5pt; line-height:1.42;
+}
+
+/* Шапка: тёмная полоса с логотипом и фирменной дугой */
+.sheet-head{
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  padding:8mm 14mm 7mm;
+  background:
+    radial-gradient(55% 120% at 72% 0%, rgba(24,123,255,.38), transparent 70%),
+    radial-gradient(40% 90% at 100% 100%, rgba(70,199,255,.18), transparent 70%),
+    var(--jet);
+  color:#EAF1FF;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+.sheet-logo{ position:relative; height:10.5mm; width:auto; }
+.sheet-title{ position:relative; text-align:right; }
+.sheet-kicker{
+  font-family:var(--display); font-weight:800; font-size:15pt; letter-spacing:-.02em;
+}
+.sheet-date{ margin-top:1px; font-size:8.5pt; color:#9FB2D8; }
+
+.sheet-intro{ padding:6mm 14mm 0; }
+.sheet-intro h1{
+  font-family:var(--display); font-weight:800; font-size:14.5pt; letter-spacing:-.03em; line-height:1.2;
+}
+.sheet-intro p{ margin-top:1.5mm; max-width:172mm; font-size:9pt; color:var(--ink-2); }
+
+.block{ padding:4.2mm 14mm 0; }
+.block h2{
+  display:flex; align-items:baseline; gap:8px; margin-bottom:2.2mm;
+  font-family:var(--display); font-weight:800; font-size:10.5pt; letter-spacing:-.01em;
+}
+.block h2 small{ font-family:var(--body); font-weight:500; font-size:8.5pt; color:var(--ink-2); }
+
+/* ---------------- 5. Таблицы ---------------- */
+table{ width:100%; border-collapse:separate; border-spacing:0; }
+th, td{ padding:1.6mm 3mm; text-align:right; vertical-align:middle; }
+thead th{
+  font-family:var(--display); font-weight:800; font-size:9pt; color:var(--ink);
+  background:var(--tint);
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+thead th small, tbody th small{
+  display:block; margin-top:1px;
+  font-family:var(--body); font-weight:500; font-size:7.5pt; color:var(--ink-2);
+}
+thead tr:first-child th{ font-size:10pt; padding-top:2.2mm; padding-bottom:1.6mm; }
+thead tr:first-child th:not(.t-corner){ border-radius:3mm 3mm 0 0; }
+.t-corner{ background:transparent; }
+.t-std{ box-shadow:inset 0 3px 0 var(--ink); }
+.t-prm{
+  color:#fff !important;
+  background:linear-gradient(100deg, var(--blue), var(--electric)) !important;
+}
+.t-prm small{ color:rgba(255,255,255,.85) !important; }
+.t-seasons th{ font-size:8.5pt; line-height:1.2; padding-top:1.3mm; padding-bottom:1.3mm; border-bottom:1px solid var(--rule); }
+/* Колонки Premium — лёгкая голубая подложка, чтобы тарифы читались раздельно */
+.tariffs tbody td:nth-child(n+4),
+.examples tbody td:nth-child(n+5){ background:rgba(24,123,255,.045); }
+
+tbody th{
+  text-align:left; font-family:var(--display); font-weight:700; font-size:10pt;
+}
+tbody td{ font-family:var(--display); font-weight:700; font-variant-numeric:tabular-nums; }
+tbody tr + tr > *{ border-top:1px solid var(--rule); }
+tbody tr:last-child > *{ border-bottom:1px solid var(--rule); }
+
+.tariffs tbody td{ font-size:13pt; letter-spacing:-.02em; }
+.tariffs tbody > tr > *{ padding-top:1.5mm; padding-bottom:1.5mm; }
+.examples th, .examples td{ padding-left:2mm; padding-right:2mm; }
+.examples tbody > tr > *{ padding-top:1.3mm; padding-bottom:1.3mm; }
+.examples tbody td{ font-size:9.5pt; }
+.examples tbody th{ font-size:9.5pt; text-align:center; }
+.examples thead th:first-child{ text-align:center; vertical-align:bottom; font-size:8.5pt; }
+.examples .t-year{ color:var(--blue); }
+
+.formula{ margin-top:1.8mm; font-size:8pt; color:var(--ink-2); }
+
+/* ---------------- 6. Что входит / услуги / условия ---------------- */
+.cols{ display:grid; grid-template-columns:1fr 1.15fr; align-items:start; }
+.cols .block:first-child{ padding-right:4mm; }
+.cols .block:last-child{ padding-left:4mm; }
+
+/* «Что входит» — три колонки на всю ширину листа */
+.checks{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.3mm 6mm; }
+.checks li, .terms li{ position:relative; padding-left:4.5mm; font-size:8.5pt; line-height:1.35; }
+.checks li::before{
+  content:""; position:absolute; left:0; top:.45em;
+  width:2.6mm; height:1.4mm;
+  border-left:1.5px solid var(--blue); border-bottom:1.5px solid var(--blue);
+  transform:rotate(-45deg);
+}
+.terms{ display:grid; gap:1.3mm; }
+.terms li{ color:var(--ink-2); font-size:8.3pt; }
+.terms li::before{
+  content:""; position:absolute; left:.6mm; top:.55em;
+  width:1.4mm; height:1.4mm; border-radius:50%; background:var(--electric);
+}
+
+/* Услуги: название слева, цена справа, пояснение строкой ниже */
+.services{ display:grid; border-top:1px solid var(--rule); }
+.services > div{
+  display:grid; grid-template-columns:1fr auto; column-gap:4mm; align-items:baseline;
+  padding:2mm 0; border-bottom:1px solid var(--rule);
+}
+.services dt{ font-family:var(--display); font-weight:700; font-size:9pt; }
+.services dd{ font-size:8.3pt; color:var(--ink-2); text-align:right; white-space:nowrap; }
+.services dd b{ font-size:11.5pt; font-weight:800; color:var(--blue); margin-right:2px; }
+.services-note{ grid-column:1 / -1; margin-top:.4mm; font-size:7.8pt !important; line-height:1.35; text-align:left !important; white-space:normal !important; }
+
+/* ---------------- 7. Подвал ---------------- */
+.sheet-foot{
+  margin-top:auto;
+  display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
+  padding:4mm 14mm 6mm;
+}
+.foot-site{ font-family:var(--display); font-weight:800; font-size:13pt; color:var(--blue); }
+.foot-contacts{ margin-top:1mm; font-size:9pt; color:var(--ink); }
+.foot-contacts:empty{ display:none; }
+.foot-slogan{
+  margin-top:1.5mm;
+  font-family:var(--display); font-weight:700; font-size:7pt; letter-spacing:.34em; color:var(--ink-2);
+}
+.foot-qr{ display:flex; align-items:center; gap:3.5mm; }
+.foot-qr p{ max-width:34mm; font-size:8pt; color:var(--ink-2); text-align:right; order:-1; }
+.qr{ width:16mm; height:16mm; }
+.qr path{ fill:var(--ink); }
+
+/* ---------------- 8. Экран уже листа (телефон) ----------------
+   Лист становится резиновым, таблицы при нехватке места прокручиваются. */
+@media screen and (max-width: 820px){
+  .sheet{ width:auto; min-height:0; margin:14px 12px 32px; font-size:14px; }
+  .sheet-head{ padding:22px 18px 18px; }
+  .sheet-logo{ height:34px; }
+  .sheet-kicker{ font-size:1.25rem; }
+  .sheet-intro, .block{ padding-left:18px; padding-right:18px; }
+  .block{ overflow-x:auto; }
+  /* Основная таблица ужимается до ширины телефона, примеры — прокручиваются */
+  .tariffs th, .tariffs td{ padding:6px 5px; }
+  .tariffs thead tr:first-child th{ font-size:12px; }
+  .tariffs thead th small, .tariffs tbody th small{ font-size:10px; }
+  .tariffs .t-seasons th{ font-size:11px; }
+  .tariffs tbody th{ font-size:13px; }
+  .tariffs tbody td{ font-size:15px; }
+  .examples{ min-width:540px; }
+  .cols{ grid-template-columns:1fr; }
+  .cols .block:first-child, .cols .block:last-child{ padding-left:18px; padding-right:18px; }
+  .checks{ grid-template-columns:1fr; }
+  .sheet-foot{ padding:24px 18px; flex-wrap:wrap; }
+  .bar{ padding-inline:12px; }
+}
+
+/* ---------------- 9. Печать и PDF ---------------- */
+@page{ size:A4; margin:0; }
+@media print{
+  body{ background:#fff; }
+  .bar{ display:none !important; }
+  .sheet{ width:210mm; height:297mm; min-height:0; margin:0; box-shadow:none; overflow:hidden; }
+}

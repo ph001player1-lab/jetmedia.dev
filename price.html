@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080B17">
+<title>JET MEDIA — прайс-лист</title>
+<meta name="description" content="Прайс-лист JET MEDIA: цифровой официант для ресторанов. Платформа за ресторан и каждое устройство, цены по сезонам.">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Шрифты брендбука: Manrope Bold + Inter Regular -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="price.css">
+</head>
+
+<body>
+
+<!-- ================================================================
+     ПАНЕЛЬ — только на экране, в печать и PDF не попадает
+     ================================================================ -->
+<nav class="bar" aria-label="Прайс-лист">
+  <a class="bar-back" href="index.html#pricing" data-t="back">← На сайт</a>
+  <div class="bar-right">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-set-lang="ru">RU</button>
+      <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-set-lang="th">TH</button>
+    </div>
+    <button type="button" class="bar-btn" id="printBtn" data-t="print">Печать</button>
+    <a class="bar-btn bar-primary" id="pdfBtn" href="price-ru.pdf" download="JET-MEDIA-price-RU.pdf" data-t="pdf">Скачать PDF</a>
+  </div>
+</nav>
+
+<!-- ================================================================
+     ЛИСТ A4
+     Все цены и даты подставляет price.js из CONFIG (config.js),
+     тексты — из словаря в price.js. В разметке только заготовка.
+     ================================================================ -->
+<main class="sheet" id="sheet">
+
+  <header class="sheet-head">
+    <img class="sheet-logo" src="logo.png" alt="JET MEDIA" width="1200" height="236">
+    <div class="sheet-title">
+      <p class="sheet-kicker" data-t="kicker">Прайс-лист</p>
+      <p class="sheet-date" id="priceDate"></p>
+    </div>
+  </header>
+
+  <section class="sheet-intro">
+    <h1 data-t="h1">Цифровой официант для ресторанов</h1>
+    <p data-t="lead">Планшет на каждом столе: меню на нескольких языках, заказ и оплата со стола, вызов официанта, AI-рекомендации блюд и напитков.</p>
+  </section>
+
+  <!-- Ежемесячная оплата: платформа + каждое устройство, по сезонам и тарифам -->
+  <section class="block">
+    <h2><span data-t="monthlyH">Ежемесячная оплата</span> <small data-t="monthlyUnit">฿ в месяц</small></h2>
+    <table class="tariffs">
+      <thead>
+        <tr>
+          <th rowspan="2" class="t-corner"></th>
+          <th colspan="2" class="t-std">Standard <small data-t="stdSub">с рекламой JET MEDIA, без рекламы конкурентов</small></th>
+          <th colspan="2" class="t-prm">Premium <small data-t="prmSub">без сторонней рекламы</small></th>
+        </tr>
+        <tr class="t-seasons">
+          <th><span data-t="low">Низкий сезон</span><small data-t="lowMonths">апрель–октябрь</small></th>
+          <th><span data-t="high">Высокий сезон</span><small data-t="highMonths">ноябрь–март</small></th>
+          <th><span data-t="low">Низкий сезон</span><small data-t="lowMonths">апрель–октябрь</small></th>
+          <th><span data-t="high">Высокий сезон</span><small data-t="highMonths">ноябрь–март</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><span data-t="platform">Платформа</span><small data-t="platformNote">за ресторан</small></th>
+          <td data-price="platform" data-season="low" data-tier="standard"></td>
+          <td data-price="platform" data-season="high" data-tier="standard"></td>
+          <td data-price="platform" data-season="low" data-tier="premium"></td>
+          <td data-price="platform" data-season="high" data-tier="premium"></td>
+        </tr>
+        <tr>
+          <th scope="row"><span data-t="device">Устройство</span><small data-t="deviceNote">за каждое, 1 на столик</small></th>
+          <td data-price="device" data-season="low" data-tier="standard"></td>
+          <td data-price="device" data-season="high" data-tier="standard"></td>
+          <td data-price="device" data-season="low" data-tier="premium"></td>
+          <td data-price="device" data-season="high" data-tier="premium"></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="formula" data-t="formula">Стоимость в месяц = платформа + устройство × число столиков</p>
+  </section>
+
+  <!-- Примеры: число столиков — CONFIG.priceList.examples -->
+  <section class="block">
+    <h2><span data-t="examplesH">Примеры расчёта</span> <small data-t="examplesUnit">฿</small></h2>
+    <table class="examples">
+      <thead>
+        <tr>
+          <th rowspan="2" class="t-corner" data-t="tables">Столиков</th>
+          <th colspan="3" class="t-std">Standard</th>
+          <th colspan="3" class="t-prm">Premium</th>
+        </tr>
+        <tr class="t-seasons">
+          <th data-t="perLow">Низкий, в месяц</th>
+          <th data-t="perHigh">Высокий, в месяц</th>
+          <th data-t="perYear">За год</th>
+          <th data-t="perLow">Низкий, в месяц</th>
+          <th data-t="perHigh">Высокий, в месяц</th>
+          <th data-t="perYear">За год</th>
+        </tr>
+      </thead>
+      <tbody id="examplesBody"></tbody>
+    </table>
+    <p class="formula" id="yearNote"></p>
+  </section>
+
+  <section class="block">
+    <h2 data-t="includedH">Что входит</h2>
+    <ul class="checks" id="included"></ul>
+  </section>
+
+  <div class="cols">
+    <section class="block">
+      <h2 data-t="servicesH">Разово и дополнительно</h2>
+        <dl class="services">
+          <div>
+            <dt data-t="setup">Подключение и настройка</dt>
+            <dd><b class="num" id="setupFee"></b> <span data-t="setupUnit">разово</span></dd>
+            <dd class="services-note" data-t="setupNote">Установка устройств, загрузка меню, обучение персонала.</dd>
+          </div>
+          <div>
+            <dt data-t="payment">Онлайн-оплата через JET MEDIA</dt>
+            <dd><b class="num" id="paymentFee"></b> <span data-t="paymentUnit">от суммы платежа</span></dd>
+            <dd class="services-note" data-t="paymentNote">Комиссия банка или платёжного провайдера — отдельно, по его тарифу.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="block">
+        <h2 data-t="termsH">Условия</h2>
+        <ul class="terms" id="terms"></ul>
+      </section>
+  </div>
+
+  <footer class="sheet-foot">
+    <div class="foot-info">
+      <p class="foot-site" id="footSite">jetmedia.dev</p>
+      <p class="foot-contacts" id="footContacts"></p>
+      <p class="foot-slogan">REACHING EVERY HORIZON</p>
+    </div>
+    <div class="foot-qr">
+      <!-- QR-код ведёт на CONFIG.priceList.site. Сменили адрес — перегенерируйте (см. README) -->
+      <svg class="qr" viewBox="0 0 25 25" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M0 0h7v1h-7zM8 0h1v1h-1zM11 0h1v1h-1zM13 0h2v1h-2zM18 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM12 1h1v1h-1zM14 1h1v1h-1zM18 1h1v1h-1zM24 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h1v1h-1zM10 2h1v1h-1zM13 2h2v1h-2zM18 2h1v1h-1zM20 2h3v1h-3zM24 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM10 3h1v1h-1zM12 3h4v1h-4zM18 3h1v1h-1zM20 3h3v1h-3zM24 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM13 4h2v1h-2zM16 4h1v1h-1zM18 4h1v1h-1zM20 4h3v1h-3zM24 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM11 5h2v1h-2zM14 5h1v1h-1zM16 5h1v1h-1zM18 5h1v1h-1zM24 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h7v1h-7zM9 7h4v1h-4zM14 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM6 8h2v1h-2zM11 8h2v1h-2zM15 8h2v1h-2zM19 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM2 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM14 9h3v1h-3zM18 9h2v1h-2zM21 9h1v1h-1zM23 9h2v1h-2zM0 10h1v1h-1zM2 10h1v1h-1zM4 10h5v1h-5zM10 10h3v1h-3zM15 10h1v1h-1zM18 10h2v1h-2zM21 10h2v1h-2zM24 10h1v1h-1zM0 11h1v1h-1zM2 11h1v1h-1zM4 11h2v1h-2zM8 11h3v1h-3zM17 11h1v1h-1zM20 11h2v1h-2zM0 12h3v1h-3zM4 12h5v1h-5zM10 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM16 12h1v1h-1zM18 12h2v1h-2zM24 12h1v1h-1zM2 13h3v1h-3zM8 13h3v1h-3zM12 13h2v1h-2zM15 13h5v1h-5zM23 13h2v1h-2zM0 14h2v1h-2zM3 14h5v1h-5zM10 14h1v1h-1zM12 14h1v1h-1zM15 14h2v1h-2zM18 14h1v1h-1zM21 14h2v1h-2zM24 14h1v1h-1zM3 15h3v1h-3zM7 15h3v1h-3zM11 15h2v1h-2zM14 15h1v1h-1zM16 15h1v1h-1zM19 15h3v1h-3zM0 16h2v1h-2zM6 16h4v1h-4zM13 16h8v1h-8zM23 16h1v1h-1zM8 17h2v1h-2zM13 17h1v1h-1zM16 17h1v1h-1zM20 17h1v1h-1zM24 17h1v1h-1zM0 18h7v1h-7zM8 18h1v1h-1zM11 18h1v1h-1zM16 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM24 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM9 19h1v1h-1zM13 19h1v1h-1zM15 19h2v1h-2zM20 19h1v1h-1zM23 19h1v1h-1zM0 20h1v1h-1zM2 20h3v1h-3zM6 20h1v1h-1zM9 20h1v1h-1zM11 20h3v1h-3zM15 20h6v1h-6zM24 20h1v1h-1zM0 21h1v1h-1zM2 21h3v1h-3zM6 21h1v1h-1zM9 21h2v1h-2zM12 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM20 21h1v1h-1zM22 21h2v1h-2zM0 22h1v1h-1zM2 22h3v1h-3zM6 22h1v1h-1zM8 22h1v1h-1zM10 22h1v1h-1zM12 22h3v1h-3zM16 22h2v1h-2zM19 22h3v1h-3zM23 22h2v1h-2zM0 23h1v1h-1zM6 23h1v1h-1zM9 23h4v1h-4zM14 23h1v1h-1zM16 23h5v1h-5zM0 24h7v1h-7zM8 24h3v1h-3zM13 24h2v1h-2zM16 24h1v1h-1zM18 24h1v1h-1zM21 24h1v1h-1zM24 24h1v1h-1z"/></svg>
+      <p data-t="qr">Калькулятор для вашего ресторана — на сайте</p>
+    </div>
+  </footer>
+
+</main>
+
+<script src="config.js" defer></script>
+<script src="price.js" defer></script>
+</body>
+</html>

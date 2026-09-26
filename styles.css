@@ -57,6 +57,7 @@ body{
 }
 
 img,svg{ max-width:100%; display:block; }
+[hidden]{ display:none !important; }
 a{ color:inherit; text-decoration:none; }
 ul,ol{ margin:0; padding:0; list-style:none; }
 button,input{ font:inherit; color:inherit; }
@@ -341,6 +342,10 @@ p{ margin:0; }
 }
 /* Заголовок остаётся на виду, пока листаете высокий калькулятор */
 .calc-intro{ margin-bottom:0; position:sticky; top:110px; }
+.calc-how{ display:grid; gap:16px; margin-top:30px; padding-top:26px; border-top:1px solid var(--line-soft); }
+.calc-how li{ display:grid; gap:2px; }
+.calc-how b{ font-family:var(--display); font-weight:800; font-size:1.05rem; color:var(--electric); letter-spacing:-.01em; }
+.calc-how span{ font-size:.88rem; color:var(--muted); }
 
 /* ---------------- 8. Калькулятор ---------------- */
 .calc{ padding:clamp(24px, 3vw, 34px); }
@@ -409,6 +414,8 @@ input[type=range]::-moz-range-thumb{
   flex-wrap:wrap; margin-top:24px;
 }
 .calc-season-label{ font-size:.88rem; color:var(--muted); }
+/* В режиме «Год» вместо переключателя сезона — пояснение, как считается год */
+.calc-season-year{ font-size:.8rem; color:var(--electric); text-align:right; }
 
 /* Аренда и чистый результат под приростом выручки */
 .res-rows{
@@ -421,6 +428,7 @@ input[type=range]::-moz-range-thumb{
   font-size:.78rem; color:var(--muted);
 }
 .res-row b{ font-size:.88rem; color:var(--text); white-space:nowrap; }
+.res-hint{ font-size:.72rem; font-weight:600; color:var(--muted); opacity:.8; white-space:nowrap; }
 .res-total{
   margin-top:2px; padding-top:8px;
   border-top:1px solid var(--line-soft);
@@ -430,6 +438,13 @@ input[type=range]::-moz-range-thumb{
 .res-net{ padding-top:2px; }
 .res-net b{ color:var(--electric); }
 .res-net b.neg{ color:#FF8F9B; }
+
+/* Сноска под расчётом: разовые услуги и ссылка на прайс-лист */
+.calc-note{
+  margin-top:16px; font-size:.78rem; color:var(--muted); line-height:1.6;
+}
+.calc-note a{ color:var(--electric); white-space:nowrap; border-bottom:1px solid rgba(70,199,255,.35); }
+.calc-note a:hover{ border-bottom-color:var(--electric); }
 
 /* ---------------- 9. Секции ---------------- */
 .section{ padding:clamp(72px, 9vw, 126px) 0; }
@@ -512,8 +527,9 @@ input[type=range]::-moz-range-thumb{
   padding:5px 12px; border-radius:100px;
 }
 .plan-name{ font-size:1.3rem; }
+.plan-sub{ margin-top:6px; font-size:.84rem; color:var(--muted); }
 .plan-price{ display:flex; align-items:baseline; gap:10px; margin-top:14px; }
-.plan-price span:first-child{
+.plan-price > span:first-child{
   font-size:clamp(1.75rem, 3.4vw, 2.5rem); line-height:1.05; color:var(--electric);
   white-space:nowrap;
 }
@@ -531,9 +547,15 @@ input[type=range]::-moz-range-thumb{
   padding-top:20px; border-top:1px solid var(--line-soft);
 }
 .plan-devices .plan-k{ margin-top:0; }
-.plan-devices-free{ margin-top:12px; font-size:.9rem; color:var(--text); }
-.plan-devices-price{ margin-top:6px; font-size:.88rem; color:var(--muted); }
-.plan-devices-price b{ color:var(--electric); font-weight:700; }
+.plan-devices-price{ margin-top:12px; font-size:.9rem; color:var(--muted); }
+.plan-devices-price b{ font-size:1.25rem; color:var(--electric); font-weight:700; margin-right:4px; }
+/* Пример для зала из калькулятора: формула целиком, без округлений */
+.plan-calc{
+  margin-top:14px; padding:10px 14px; border-radius:var(--r-s);
+  background:rgba(24,123,255,.08); border:1px solid var(--line-soft);
+  font-size:.84rem; color:var(--muted);
+}
+.plan-calc .num{ color:var(--text); white-space:nowrap; }
 .plan-list{ display:grid; gap:12px; }
 .plan-list li{ position:relative; padding-left:26px; font-size:.92rem; color:var(--muted); }
 .plan-list li::before{
@@ -544,14 +566,17 @@ input[type=range]::-moz-range-thumb{
 }
 .plan-cta{ margin-top:auto; width:100%; }
 
-/* Сноска под тарифами: доплата за устройства и бесплатный период */
+/* Под тарифами: разовые услуги и прайс-лист (открыть / скачать PDF) */
 .plans-note{
-  margin-top:18px; padding:18px 22px;
+  margin-top:18px; padding:20px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;
   border:1px solid var(--line-soft); border-radius:var(--r-m);
   background:rgba(255,255,255,.02);
-  font-size:.85rem; color:var(--muted); line-height:1.7;
+  font-size:.86rem; color:var(--muted); line-height:1.65;
 }
-.plans-note [data-claim]{ color:var(--electric); font-weight:600; }
+.plans-terms{ display:grid; gap:6px; flex:1 1 420px; }
+.plans-actions{ display:flex; flex-wrap:wrap; gap:10px; }
+.plans-actions .btn{ padding:12px 20px; font-size:.88rem; }
 
 /* ---------------- 13. FAQ ---------------- */
 .faq{ display:grid; gap:8px; }
@@ -700,6 +725,7 @@ input[type=range]::-moz-range-thumb{
 
 @media (max-width: 520px){
   .calc-result{ grid-template-columns:1fr; }
+  .plans-actions, .plans-actions .btn{ width:100%; }
   .hero-cta .btn{ width:100%; }
   .hero-trust{ gap:14px 24px; }
   .seg-btn{ padding:9px 14px; font-size:.8rem; }
