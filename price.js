@@ -18,21 +18,21 @@ const PRICE_I18N = {
     h1: "Цифровой официант для ресторанов",
     lead: "Планшет на каждом столе: меню на нескольких языках, заказ и оплата со стола, вызов официанта, AI-рекомендации блюд и напитков. Помогает поднять средний чек и разгрузить персонал.",
 
-    monthlyH: "Ежемесячная оплата", monthlyUnit: "฿ в месяц",
+    monthlyH: "Ежемесячная оплата", monthlyUnit: "฿ в месяц, с НДС {vat}%",
     stdSub: "с рекламой JET MEDIA, без рекламы конкурентов",
     prmSub: "без сторонней рекламы",
     low: "Низкий сезон", high: "Высокий сезон",
     lowMonths: "апрель–октябрь", highMonths: "ноябрь–март",
-    platform: "Платформа", platformNote: "за ресторан",
-    device: "Устройство", deviceNote: "за каждое, 1 на столик",
-    formula: "Стоимость в месяц = платформа + устройство × число столиков",
+    platform: "Софт и поддержка", platformNote: "за ресторан",
+    device: "Аренда устройства", deviceNote: "за каждое, 1 на столик",
+    formula: "Стоимость в месяц = софт и поддержка + аренда устройства × число столиков",
 
     examplesH: "Примеры расчёта", examplesUnit: "฿ в месяц по сезонам и за год",
     tables: "Столиков",
     perLow: "Низкий сезон", perHigh: "Высокий сезон", perYear: "За год",
     yearNote: "За год = {low} мес. низкого сезона + {high} мес. высокого",
 
-    includedH: "Что входит в ежемесячную оплату",
+    includedH: "Что входит: софт, поддержка и устройства",
     included: [
       "Устройство на каждый стол с зарядкой для телефона",
       "Интерактивное меню с фото и описанием блюд",
@@ -49,20 +49,20 @@ const PRICE_I18N = {
     ],
 
     servicesH: "Разово и дополнительно",
-    setup: "Подключение и настройка", setupUnit: "разово",
-    setupNote: "Установка устройств, загрузка меню, обучение персонала.",
-    payment: "Онлайн-оплата через JET MEDIA", paymentUnit: "от суммы платежа",
-    paymentNote: "Комиссия банка или платёжного провайдера — отдельно, по его тарифу.",
+    setup: "Подключение и настройка",
+    setupNote: "Разово, при подписании договора: установка устройств, загрузка меню, обучение персонала.",
+    payment: "Онлайн-оплата через JET MEDIA",
+    paymentNote: "От суммы платежа. Комиссия банка или платёжного провайдера — отдельно, по его тарифу.",
 
     termsH: "Условия",
     terms: [
       "Сезоны: высокий — ноябрь–март ({high} мес.), низкий — апрель–октябрь ({low} мес.).",
       "Устройства — в аренде, по одному на столик. Гарантийная замена — за счёт JET MEDIA.",
-      "Оплата ежемесячно. Отказаться можно в любой момент — заберём оборудование в конце оплаченного периода.",
-      "Цены в тайских батах."
+      "Договор — от {minMonths} мес., в первые {cancelMonths} мес. можно отказаться. Оплата ежемесячно.",
+      "Цены в тайских батах, включая НДС {vat}%."
     ],
 
-    qr: "Калькулятор для вашего ресторана — на сайте",
+    qr: "Расчёт для вашего ресторана и заявка — на сайте",
     contacts: { phone: "Тел.", line: "LINE", whatsapp: "WhatsApp", telegram: "Telegram", email: "E-mail" }
   },
 
@@ -74,21 +74,21 @@ const PRICE_I18N = {
     h1: "A digital waiter for restaurants",
     lead: "A tablet on every table: a menu in several languages, ordering and payment from the table, a waiter call button, AI recommendations for dishes and drinks. Helps raise the average check and take load off the staff.",
 
-    monthlyH: "Monthly fees", monthlyUnit: "฿ per month",
+    monthlyH: "Monthly fees", monthlyUnit: "฿ per month, incl. {vat}% VAT",
     stdSub: "with JET MEDIA ads, never competitors' ads",
     prmSub: "no third-party ads",
     low: "Low season", high: "High season",
     lowMonths: "April–October", highMonths: "November–March",
-    platform: "Platform", platformNote: "per restaurant",
-    device: "Device", deviceNote: "each one, 1 per table",
-    formula: "Monthly price = platform + device × number of tables",
+    platform: "Software & support", platformNote: "per restaurant",
+    device: "Device rental", deviceNote: "each one, 1 per table",
+    formula: "Monthly price = software & support + device rental × number of tables",
 
     examplesH: "Examples", examplesUnit: "฿ per month by season, and per year",
     tables: "Tables",
     perLow: "Low season", perHigh: "High season", perYear: "Per year",
     yearNote: "A year = {low} low-season months + {high} high-season months",
 
-    includedH: "Included in the monthly fee",
+    includedH: "Included: software, support and devices",
     included: [
       "A device on every table with phone charging",
       "Interactive menu with photos and dish descriptions",
@@ -105,20 +105,20 @@ const PRICE_I18N = {
     ],
 
     servicesH: "One-time and optional",
-    setup: "Setup", setupUnit: "one-time",
-    setupNote: "Device installation, menu upload, staff training.",
-    payment: "Online payments via JET MEDIA", paymentUnit: "of the payment amount",
-    paymentNote: "The bank's or payment provider's fee is charged separately at its own rate.",
+    setup: "Setup",
+    setupNote: "One-time, paid at contract signing: device installation, menu upload, staff training.",
+    payment: "Online payments via JET MEDIA",
+    paymentNote: "Of the payment amount. The bank's or payment provider's fee is charged separately at its own rate.",
 
     termsH: "Terms",
     terms: [
       "Seasons: high is November–March ({high} months), low is April–October ({low} months).",
       "Devices are rented, one per table. Warranty replacement is at JET MEDIA's expense.",
-      "Monthly billing. Cancel any time — we collect the equipment at the end of the paid period.",
-      "Prices are in Thai baht."
+      "Contract from {minMonths} months; you can cancel within the first {cancelMonths} months. Monthly billing.",
+      "Prices are in Thai baht and include {vat}% VAT."
     ],
 
-    qr: "A calculator for your restaurant is on our website",
+    qr: "Calculate your restaurant and send a request on our website",
     contacts: { phone: "Tel.", line: "LINE", whatsapp: "WhatsApp", telegram: "Telegram", email: "E-mail" }
   },
 
@@ -130,21 +130,21 @@ const PRICE_I18N = {
     h1: "พนักงานเสิร์ฟดิจิทัลสำหรับร้านอาหาร",
     lead: "แท็บเล็ตบนทุกโต๊ะ: เมนูหลายภาษา สั่งอาหารและชำระเงินจากโต๊ะ ปุ่มเรียกพนักงาน และ AI แนะนำอาหารและเครื่องดื่ม ช่วยเพิ่มยอดบิลเฉลี่ยและลดภาระงานของพนักงาน",
 
-    monthlyH: "ค่าบริการรายเดือน", monthlyUnit: "฿ ต่อเดือน",
+    monthlyH: "ค่าบริการรายเดือน", monthlyUnit: "฿ ต่อเดือน รวม VAT {vat}%",
     stdSub: "มีโฆษณา JET MEDIA ไม่มีโฆษณาร้านคู่แข่ง",
     prmSub: "ไม่มีโฆษณาจากภายนอก",
     low: "โลว์ซีซัน", high: "ไฮซีซัน",
     lowMonths: "เมษายน–ตุลาคม", highMonths: "พฤศจิกายน–มีนาคม",
-    platform: "แพลตฟอร์ม", platformNote: "ต่อร้าน",
-    device: "อุปกรณ์", deviceNote: "ต่อเครื่อง 1 เครื่องต่อโต๊ะ",
-    formula: "ค่าบริการต่อเดือน = แพลตฟอร์ม + อุปกรณ์ × จำนวนโต๊ะ",
+    platform: "ซอฟต์แวร์และการสนับสนุน", platformNote: "ต่อร้าน",
+    device: "ค่าเช่าอุปกรณ์", deviceNote: "ต่อเครื่อง 1 เครื่องต่อโต๊ะ",
+    formula: "ค่าบริการต่อเดือน = ซอฟต์แวร์และการสนับสนุน + ค่าเช่าอุปกรณ์ × จำนวนโต๊ะ",
 
     examplesH: "ตัวอย่างการคำนวณ", examplesUnit: "฿ ต่อเดือนตามฤดูกาล และต่อปี",
     tables: "จำนวนโต๊ะ",
     perLow: "โลว์ซีซัน", perHigh: "ไฮซีซัน", perYear: "ต่อปี",
     yearNote: "หนึ่งปี = โลว์ซีซัน {low} เดือน + ไฮซีซัน {high} เดือน",
 
-    includedH: "สิ่งที่รวมอยู่ในค่าบริการรายเดือน",
+    includedH: "สิ่งที่รวมอยู่: ซอฟต์แวร์ การสนับสนุน และอุปกรณ์",
     included: [
       "อุปกรณ์บนทุกโต๊ะ พร้อมที่ชาร์จโทรศัพท์",
       "เมนูอินเทอร์แอกทีฟพร้อมรูปภาพและคำอธิบายอาหาร",
@@ -161,20 +161,20 @@ const PRICE_I18N = {
     ],
 
     servicesH: "ค่าบริการครั้งเดียวและบริการเสริม",
-    setup: "ติดตั้งและตั้งค่า", setupUnit: "ครั้งเดียว",
-    setupNote: "ติดตั้งอุปกรณ์ อัปโหลดเมนู อบรมพนักงาน",
-    payment: "ชำระเงินออนไลน์ผ่าน JET MEDIA", paymentUnit: "ของยอดชำระ",
-    paymentNote: "ค่าธรรมเนียมของธนาคารหรือผู้ให้บริการชำระเงินคิดแยกตามอัตราของผู้ให้บริการ",
+    setup: "ติดตั้งและตั้งค่า",
+    setupNote: "ครั้งเดียว ชำระเมื่อเซ็นสัญญา: ติดตั้งอุปกรณ์ อัปโหลดเมนู อบรมพนักงาน",
+    payment: "ชำระเงินออนไลน์ผ่าน JET MEDIA",
+    paymentNote: "ของยอดชำระ ค่าธรรมเนียมของธนาคารหรือผู้ให้บริการชำระเงินคิดแยกตามอัตราของผู้ให้บริการ",
 
     termsH: "เงื่อนไข",
     terms: [
       "ฤดูกาล: ไฮซีซัน พฤศจิกายน–มีนาคม ({high} เดือน) โลว์ซีซัน เมษายน–ตุลาคม ({low} เดือน)",
       "อุปกรณ์เป็นแบบเช่า หนึ่งเครื่องต่อโต๊ะ การเปลี่ยนในระยะรับประกัน JET MEDIA รับผิดชอบค่าใช้จ่าย",
-      "ชำระรายเดือน ยกเลิกได้ทุกเมื่อ เราจะรับอุปกรณ์คืนเมื่อสิ้นสุดรอบที่ชำระแล้ว",
-      "ราคาเป็นเงินบาท"
+      "สัญญาขั้นต่ำ {minMonths} เดือน ยกเลิกได้ภายใน {cancelMonths} เดือนแรก ชำระรายเดือน",
+      "ราคาเป็นเงินบาท รวมภาษีมูลค่าเพิ่ม {vat}% แล้ว"
     ],
 
-    qr: "เครื่องคำนวณสำหรับร้านของคุณอยู่บนเว็บไซต์",
+    qr: "คำนวณสำหรับร้านของคุณและส่งคำขอได้บนเว็บไซต์",
     contacts: { phone: "โทร", line: "LINE", whatsapp: "WhatsApp", telegram: "Telegram", email: "E-mail" }
   }
 };
@@ -188,7 +188,7 @@ const tpl = (str, vars) => String(str || "").replace(/\{(\w+)\}/g, (m, k) => (k 
 let lang = "ru";
 let nf = new Intl.NumberFormat(LOCALES.ru, { maximumFractionDigits: 0 });
 const num   = n => nf.format(Math.round(n));
-const money = n => num(n) + " " + CONFIG.currency;
+const money = n => num(n) + "\u00a0" + CONFIG.currency;   // ฿ не отрывается от числа
 
 /* Язык: ?lang= в адресе → выбор на сайте → язык браузера → русский */
 function detectLang(){
@@ -204,8 +204,12 @@ function detectLang(){
 /* ---------------- Отрисовка ---------------- */
 function render(){
   const d = PRICE_I18N[lang];
-  const months = { low: num(CONFIG.pricing.low.months), high: num(CONFIG.pricing.high.months) };
   nf = new Intl.NumberFormat(LOCALES[lang], { maximumFractionDigits: 0 });
+  const vars = {
+    low: num(CONFIG.pricing.low.months), high: num(CONFIG.pricing.high.months),
+    minMonths: num(CONFIG.contract.minMonths), cancelMonths: num(CONFIG.contract.cancelMonths),
+    vat: num(CONFIG.vat)
+  };
 
   document.documentElement.lang = lang;
   document.documentElement.dataset.lang = lang;
@@ -213,7 +217,7 @@ function render(){
 
   $$("[data-t]").forEach(el => {
     const val = d[el.dataset.t];
-    if (typeof val === "string") el.textContent = val;
+    if (typeof val === "string") el.textContent = tpl(val, vars);
   });
 
   // Дата — месяцем и годом на языке прайса (в тайском — буддийский год)
@@ -222,10 +226,10 @@ function render(){
     date: new Intl.DateTimeFormat(LOCALES[lang], { day: "numeric", month: "long", year: "numeric" }).format(date)
   });
 
-  // Основная таблица: платформа и устройство по сезонам и тарифам
+  // Основная таблица: софт и поддержка + аренда устройства, по сезонам и тарифам
   $$("[data-price]").forEach(td => {
     const { price, season, tier } = td.dataset;
-    const val = price === "platform" ? platformFee(season, tier) : devicePrice(season, tier);
+    const val = price === "software" ? softwareFee(season, tier) : devicePrice(season, tier);
     td.textContent = num(val);
   });
 
@@ -246,14 +250,14 @@ function render(){
     });
     $("#examplesBody").appendChild(tr);
   });
-  $("#yearNote").textContent = tpl(d.yearNote, months);
+  $("#yearNote").textContent = tpl(d.yearNote, vars);
 
   // Списки
   const fill = (sel, items) => {
     $(sel).innerHTML = "";
     items.forEach(text => {
       const li = document.createElement("li");
-      li.textContent = tpl(text, months);
+      li.textContent = tpl(text, vars);
       $(sel).appendChild(li);
     });
   };

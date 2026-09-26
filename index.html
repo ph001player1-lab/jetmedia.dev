@@ -51,9 +51,9 @@
   "description": "Цифровой официант для ресторанов: AI-рекомендации, мультиязычное меню, оплата со стола, отзывы и аналитика продаж.",
   "makesOffer": [
     { "@type": "Offer", "name": "Standard", "price": "1900", "priceCurrency": "THB",
-      "description": "Платформа от 1 900 ฿ в месяц за ресторан + от 240 ฿ в месяц за каждое устройство. С рекламой сети JET MEDIA, без рекламы конкурентов." },
+      "description": "Софт и поддержка от 1 900 ฿ в месяц за ресторан + аренда устройства от 240 ฿ в месяц за каждое. С рекламой сети JET MEDIA, без рекламы конкурентов. Цены с НДС 7%." },
     { "@type": "Offer", "name": "Premium", "price": "3800", "priceCurrency": "THB",
-      "description": "Платформа от 3 800 ฿ в месяц за ресторан + от 480 ฿ в месяц за каждое устройство. Без сторонней рекламы." }
+      "description": "Софт и поддержка от 3 800 ฿ в месяц за ресторан + аренда устройства от 480 ฿ в месяц за каждое. Без сторонней рекламы. Цены с НДС 7%." }
   ]
 }
 </script>
@@ -189,8 +189,8 @@
 
       <!-- Как считает калькулятор: три правила, числа — из CONFIG -->
       <ul class="calc-how">
-        <li><b class="num" data-claim="uplift-pair">+6% / +15%</b><span data-i18n="calc.how1">прирост к выручке зала: Standard / Premium</span></li>
-        <li><b data-i18n="calc.how2k">1 столик = 1 устройство</b><span data-i18n="calc.how2">платится каждое устройство, плюс платформа за ресторан</span></li>
+        <li><b class="num" data-claim="uplift-range">+6–15%</b><span data-i18n="calc.how1">прирост выручки: зависит от ресторана, а не от тарифа — двигайте ползунок</span></li>
+        <li><b data-i18n="calc.how2k">1 столик = 1 устройство</b><span data-i18n="calc.how2">платится аренда каждого устройства, плюс софт и поддержка за ресторан</span></li>
         <li><b class="num" data-tpl="calc.how3k">7 + 5 мес.</b><span data-i18n="calc.how3">год считается по сезонам: низкий — апрель–октябрь, высокий — ноябрь–март</span></li>
       </ul>
     </header>
@@ -229,6 +229,16 @@
           </label>
           <input type="range" id="sCheck" min="100" max="5000" step="10" value="850" aria-label="Средний чек">
         </div>
+
+        <!-- Прирост у каждого ресторана свой: клиент или менеджер двигает ползунок на переговорах -->
+        <div class="field">
+          <label class="field-top" for="sUplift">
+            <span data-i18n="calc.uplift">Прирост выручки</span>
+            <output class="val num" id="oUplift">+6%</output>
+          </label>
+          <input type="range" id="sUplift" min="6" max="15" step="1" value="6" aria-label="Прирост выручки, %">
+          <p class="field-note" data-tpl="calc.upliftNote">Зависит от настройки меню и акций, слаженности работы персонала — не от тарифа. Диапазон 6–15% — по статистике.</p>
+        </div>
       </div>
 
       <!-- Сезон влияет и на стоимость в расчёте, и на цены в тарифах.
@@ -247,33 +257,39 @@
         <b class="num" id="rNow">1 530 000 ฿</b>
       </div>
 
+      <!-- Прирост один для обоих тарифов: они отличаются только расходами -->
+      <div class="calc-gain">
+        <span><span data-i18n="calc.gain">Прирост выручки</span> <em class="num" id="rGainPct">+6%</em></span>
+        <b class="num" id="rGain">+91 800 ฿</b>
+      </div>
+
       <div class="calc-result">
         <div class="res">
-          <p class="res-label"><span data-i18n="calc.standard">Standard</span> <em class="num" data-claim="uplift-std">+6%</em></p>
-          <p class="res-cap" data-i18n="calc.gain">Прирост выручки</p>
-          <p class="res-value num" id="rStd">+91 800 ฿</p>
+          <p class="res-label" data-i18n="calc.standard">Standard</p>
+          <p class="res-sub" data-i18n="calc.stdSub">с рекламой сети JET MEDIA</p>
+          <p class="res-cap" data-i18n="calc.net">Чистый результат</p>
+          <p class="res-value num" id="netStd">+87 500 ฿</p>
           <div class="res-rows">
-            <p class="res-row"><span data-i18n="calc.saas">Платформа</span><b class="num" id="saasStd">−1 900 ฿</b></p>
-            <p class="res-row"><span><span data-i18n="calc.devices">Устройства</span> <small class="res-hint num" id="devHintStd">10 × 240 ฿</small></span><b class="num" id="devStd">−2 400 ฿</b></p>
-            <p class="res-row res-total"><span data-total-label>Итого в месяц</span><b class="num" id="costStd">−4 300 ฿</b></p>
-            <p class="res-row res-net"><span data-i18n="calc.net">Чистый результат</span><b class="num" id="netStd">+87 500 ฿</b></p>
+            <p class="res-row"><span data-i18n="calc.saas">Софт и поддержка</span><b class="num" id="saasStd">−1 900 ฿</b></p>
+            <p class="res-row"><span><span data-i18n="calc.devices">Аренда устройств</span> <small class="res-hint num" id="devHintStd">10 × 240 ฿</small></span><b class="num" id="devStd">−2 400 ฿</b></p>
+            <p class="res-row res-total"><span data-total-label>Расходы в месяц</span><b class="num" id="costStd">−4 300 ฿</b></p>
           </div>
         </div>
         <div class="res res-pro">
-          <p class="res-label"><span data-i18n="calc.premium">Premium</span> <em class="num" data-claim="uplift-prm">+15%</em></p>
-          <p class="res-cap" data-i18n="calc.gain">Прирост выручки</p>
-          <p class="res-value num" id="rPrm">+229 500 ฿</p>
+          <p class="res-label" data-i18n="calc.premium">Premium</p>
+          <p class="res-sub" data-i18n="calc.prmSub">без сторонней рекламы</p>
+          <p class="res-cap" data-i18n="calc.net">Чистый результат</p>
+          <p class="res-value num" id="netPrm">+83 200 ฿</p>
           <div class="res-rows">
-            <p class="res-row"><span data-i18n="calc.saas">Платформа</span><b class="num" id="saasPrm">−3 800 ฿</b></p>
-            <p class="res-row"><span><span data-i18n="calc.devices">Устройства</span> <small class="res-hint num" id="devHintPrm">10 × 480 ฿</small></span><b class="num" id="devPrm">−4 800 ฿</b></p>
-            <p class="res-row res-total"><span data-total-label>Итого в месяц</span><b class="num" id="costPrm">−8 600 ฿</b></p>
-            <p class="res-row res-net"><span data-i18n="calc.net">Чистый результат</span><b class="num" id="netPrm">+220 900 ฿</b></p>
+            <p class="res-row"><span data-i18n="calc.saas">Софт и поддержка</span><b class="num" id="saasPrm">−3 800 ฿</b></p>
+            <p class="res-row"><span><span data-i18n="calc.devices">Аренда устройств</span> <small class="res-hint num" id="devHintPrm">10 × 480 ฿</small></span><b class="num" id="devPrm">−4 800 ฿</b></p>
+            <p class="res-row res-total"><span data-total-label>Расходы в месяц</span><b class="num" id="costPrm">−8 600 ฿</b></p>
           </div>
         </div>
       </div>
 
       <p class="calc-note">
-        <span data-tpl="calc.note">Разово: подключение — 4 900 ฿. Онлайн-оплата — 0,9% от платежа.</span>
+        <span data-tpl="calc.note">При подписании договора: подключение — 5 000 ฿. Онлайн-оплата — 0,9% от платежа. Цены с НДС 7%.</span>
         <a href="price.html" data-price-page data-i18n="price.open">Открыть прайс-лист</a>
       </p>
     </div>
@@ -336,7 +352,7 @@
     <header class="sec-head reveal">
       <p class="eyebrow" data-i18n="price.eyebrow">Тарифы</p>
       <h2 data-i18n="price.title">Два тарифа</h2>
-      <p class="sec-sub" data-i18n="price.sub">Стоимость складывается из двух частей: абонентская плата за платформу и аренда устройств.</p>
+      <p class="sec-sub" data-i18n="price.sub">Стоимость = софт и поддержка за ресторан + аренда каждого устройства. Тарифы отличаются только рекламой на экране. Цена зависит от сезона: высокий — ноябрь–март, низкий — апрель–октябрь.</p>
       <div class="seg seg-season" role="group" aria-label="Сезон">
         <button type="button" class="seg-btn" data-season="low" data-i18n="price.low">Низкий сезон</button>
         <button type="button" class="seg-btn" data-season="high" data-i18n="price.high">Высокий сезон</button>
@@ -348,9 +364,9 @@
         <div class="plan-top">
           <h3 class="plan-name">Standard</h3>
           <p class="plan-sub" data-i18n="price.subStd">С рекламой сети JET MEDIA — без рекламы конкурентов</p>
-          <p class="plan-k" data-i18n="price.platformK">Платформа</p>
+          <p class="plan-k" data-i18n="price.platformK">Софт и поддержка</p>
           <p class="plan-price"><span class="num" id="priceStd">1 900 ฿</span><small><span data-i18n="price.per">в месяц</span></small></p>
-          <p class="plan-example" data-i18n="price.saasNote">за ресторан, не зависит от числа столиков</p>
+          <p class="plan-example" data-i18n="price.saasNote">за ресторан: меню, заказы, AI-рекомендации, аналитика, обновления и техподдержка</p>
         </div>
         <ul class="plan-list">
           <li data-i18n="price.s1">Аренда оборудования</li>
@@ -364,7 +380,7 @@
           <li data-i18n="price.s9">Управление меню и контентом</li>
         </ul>
         <div class="plan-devices">
-          <p class="plan-k" data-i18n="price.devicesK">Устройства</p>
+          <p class="plan-k" data-i18n="price.devicesK">Аренда устройств</p>
           <p class="plan-devices-price"><b class="num" id="devPriceStd">240 ฿</b> <span data-i18n="price.perDevice">за каждое устройство в месяц</span></p>
           <p class="plan-calc"><span data-i18n="price.yourHall">Для вашего зала:</span> <span class="num" id="exampleStd">1 900 ฿ + 10 × 240 ฿ = 4 300 ฿</span></p>
         </div>
@@ -372,13 +388,13 @@
       </article>
 
       <article class="plan plan-pro reveal">
-        <span class="plan-badge" data-i18n="price.badge">Максимум прибыли</span>
+        <span class="plan-badge" data-i18n="price.badge">Для премиальных заведений</span>
         <div class="plan-top">
           <h3 class="plan-name">Premium</h3>
           <p class="plan-sub" data-i18n="price.subPrm">Без сторонней рекламы</p>
-          <p class="plan-k" data-i18n="price.platformK">Платформа</p>
+          <p class="plan-k" data-i18n="price.platformK">Софт и поддержка</p>
           <p class="plan-price"><span class="num" id="pricePrm">3 800 ฿</span><small><span data-i18n="price.per">в месяц</span></small></p>
-          <p class="plan-example" data-i18n="price.saasNote">за ресторан, не зависит от числа столиков</p>
+          <p class="plan-example" data-i18n="price.saasNote">за ресторан: меню, заказы, AI-рекомендации, аналитика, обновления и техподдержка</p>
           <p class="plan-note" data-i18n="price.all">Всё из Standard, плюс:</p>
         </div>
         <ul class="plan-list">
@@ -386,7 +402,7 @@
           <li data-i18n="price.p2">Экран полностью под ваши акции и рекомендации</li>
         </ul>
         <div class="plan-devices">
-          <p class="plan-k" data-i18n="price.devicesK">Устройства</p>
+          <p class="plan-k" data-i18n="price.devicesK">Аренда устройств</p>
           <p class="plan-devices-price"><b class="num" id="devPricePrm">480 ฿</b> <span data-i18n="price.perDevice">за каждое устройство в месяц</span></p>
           <p class="plan-calc"><span data-i18n="price.yourHall">Для вашего зала:</span> <span class="num" id="examplePrm">3 800 ฿ + 10 × 480 ฿ = 8 600 ฿</span></p>
         </div>
@@ -397,8 +413,9 @@
     <!-- Разовые услуги и прайс-лист. PDF-ссылка меняется вместе с языком сайта -->
     <div class="plans-note reveal">
       <div class="plans-terms">
-        <p data-tpl="price.noteSetup">Подключение и настройка — 4 900 ฿ разово: установка устройств, загрузка меню, обучение персонала.</p>
+        <p data-tpl="price.noteSetup">Подключение и настройка — 5 000 ฿ при подписании договора: установка устройств, загрузка меню, обучение персонала.</p>
         <p data-tpl="price.notePay">Онлайн-оплата через JET MEDIA — 0,9% от суммы платежа; комиссия банка — по его тарифу.</p>
+        <p data-tpl="price.noteTerms">Договор — от 12 мес., в первые 2 мес. можно отказаться. Все цены с НДС 7%.</p>
       </div>
       <div class="plans-actions">
         <a class="btn btn-line" href="price.html" data-price-page data-i18n="price.open">Открыть прайс-лист</a>
@@ -429,7 +446,7 @@
       </details>
       <details class="qa reveal">
         <summary data-i18n="faq.q3">Можно ли отказаться?</summary>
-        <p data-i18n="faq.a3">Да, в любой момент. В конце оплаченного периода мы просто забираем оборудование.</p>
+        <p data-tpl="faq.a3">Договор заключается минимум на 12 мес. В первые 2 мес. от него можно отказаться — в конце оплаченного периода мы просто заберём оборудование.</p>
       </details>
       <details class="qa reveal">
         <summary data-i18n="faq.q4">Сколько занимает установка?</summary>

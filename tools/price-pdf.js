@@ -22,10 +22,23 @@ const LANGS = ["ru", "en", "th"];
   const browser = await chromium.launch(launch);
   const page = await browser.newPage();
 
+  // Фирменные шрифты грузятся с Google Fonts. Если сеть моргнула, браузер
+  // молча подставит системный шрифт — такой PDF не сохраняем, а пробуем ещё раз.
+  const brandFontsLoaded = () => page.evaluate(async () => {
+    await document.fonts.ready;
+    const loaded = [...document.fonts].filter(f => f.status === "loaded").map(f => f.family.replace(/"/g, ""));
+    return ["Manrope", "Inter"].every(name => loaded.includes(name));
+  });
+
   for (const lang of LANGS){
     const url = pathToFileURL(path.join(ROOT, "price.html")).href + "?lang=" + lang;
-    await page.goto(url, { waitUntil: "networkidle" });
-    await page.evaluate(() => document.fonts.ready);
+    let fontsOk = false;
+    for (let attempt = 1; attempt <= 4 && !fontsOk; attempt++){
+      await page.goto(url, { waitUntil: "networkidle" });
+      fontsOk = await brandFontsLoaded();
+      if (!fontsOk) console.warn(`  ${lang}: шрифты не загрузились, попытка ${attempt}`);
+    }
+    if (!fontsOk) throw new Error(`${lang}: фирменные шрифты не загрузились — проверьте интернет и запустите ещё раз`);
 
     // Вёрстка для печати; лист должен уместиться на одну страницу A4
     await page.emulateMedia({ media: "print" });
