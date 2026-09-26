@@ -96,10 +96,13 @@
 <main id="top">
 
 <!-- ================================================================
-     HERO + КАЛЬКУЛЯТОР
+     ПЕРВЫЙ ЭКРАН: устройство с выносками
+     Подписи выносок переводятся (data-i18n). Линии, точки и подписи
+     заданы в координатах картинки device.webp (628×940): поменяли
+     x/y — линия и подпись переедут вместе.
      Все числа с атрибутом data-claim подставляет script.js из CONFIG.
      ================================================================ -->
-<section class="hero" id="calc">
+<section class="hero">
   <div class="hero-bg" aria-hidden="true">
     <svg class="arc" viewBox="0 0 1440 300" preserveAspectRatio="none" focusable="false">
       <defs>
@@ -124,6 +127,7 @@
         <span data-i18n="hero.title1">Дополнительная выручка</span>
         <span class="accent" data-i18n="hero.title2">без найма персонала</span>
       </h1>
+      <p class="hero-lead" data-i18n="hero.lead">Планшет на столе предлагает гостю блюда, напитки и десерты, принимает заказ и оплату, зовёт официанта и заряжает телефон.</p>
 
       <div class="hero-cta">
         <a class="btn btn-primary" href="#request" data-request-type="demo" data-i18n="hero.ctaDemo">Заказать демонстрацию</a>
@@ -137,8 +141,55 @@
       </ul>
     </div>
 
+    <!-- ---------- Устройство ---------- -->
+    <div class="hero-media">
+      <figure class="device">
+        <div class="device-art">
+          <img class="device-img" src="device.webp" width="628" height="940" fetchpriority="high"
+               data-i18n-alt="hero.alt"
+               alt="Планшет JET MEDIA на столе ресторана: акция на экране, кнопки вызова официанта, меню и оплаты, USB-зарядка в основании">
+          <!-- Линия идёт от точки на устройстве к подписи; x &lt; 0 — подпись левее картинки -->
+          <svg class="device-lines" viewBox="0 0 628 940" aria-hidden="true" focusable="false">
+            <polyline pathLength="1" points="146,122 -24,122"/>
+            <polyline pathLength="1" points="70,620 -24,620"/>
+            <polyline pathLength="1" points="203,672 203,712 -24,712"/>
+            <polyline pathLength="1" points="335,628 500,628"/>
+            <polyline pathLength="1" points="505,800 505,722 520,722"/>
+          </svg>
+          <span class="pin" style="--x:146; --y:122" aria-hidden="true">1</span>
+          <span class="pin" style="--x:70; --y:620" aria-hidden="true">2</span>
+          <span class="pin" style="--x:203; --y:672" aria-hidden="true">3</span>
+          <span class="pin" style="--x:335; --y:628" aria-hidden="true">4</span>
+          <span class="pin" style="--x:505; --y:800" aria-hidden="true">5</span>
+        </div>
+        <ul class="tags">
+          <li class="tag tag-l" style="--x:-24; --y:122"><b>1</b><span data-i18n="hero.tag1">Акции и рекомендации</span></li>
+          <li class="tag tag-l" style="--x:-24; --y:620"><b>2</b><span data-i18n="hero.tag2">Вызов официанта</span></li>
+          <li class="tag tag-l" style="--x:-24; --y:712"><b>3</b><span data-i18n="hero.tag3">Заказ по меню</span></li>
+          <li class="tag tag-r" style="--x:500; --y:628"><b>4</b><span data-i18n="hero.tag4">Оплата картой и QR</span></li>
+          <li class="tag tag-r" style="--x:520; --y:722"><b>5</b><span data-i18n="hero.tag5">Зарядка для телефона</span></li>
+        </ul>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================
+     КАЛЬКУЛЯТОР
+     Все числа с атрибутом data-claim подставляет script.js из CONFIG.
+     ================================================================ -->
+<section class="section calc-sec" id="calc">
+  <div class="wrap calc-grid">
+
+    <header class="sec-head calc-intro reveal">
+      <p class="eyebrow" data-i18n="calc.eyebrow">Расчёт для вашего зала</p>
+      <h2 data-i18n="calc.h2">Сколько заработает ваш ресторан</h2>
+      <p class="sec-sub" data-i18n="calc.sub">Укажите число столиков, гостей и средний чек — расчёт по обоим тарифам обновится сразу.</p>
+    </header>
+
     <!-- ---------- Калькулятор прибыли ---------- -->
-    <div class="calc glass" id="calcCard">
+    <div class="calc glass reveal" id="calcCard">
       <div class="calc-head">
         <h2 class="calc-title" data-i18n="calc.title">Калькулятор прибыли</h2>
         <div class="seg seg-sm" role="group" aria-label="Период">
@@ -212,7 +263,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 

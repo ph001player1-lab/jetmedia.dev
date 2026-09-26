@@ -174,8 +174,15 @@ const I18N = {
     "hero.title1": "Дополнительная выручка", "hero.title2": "без найма персонала",
     "hero.ctaDemo": "Заказать демонстрацию", "hero.ctaInstall": "Заказать установку",
     "hero.t1": "к выручке зала", "hero.t2": "нагрузки на персонал", "hero.t3": "дня на запуск",
+    "hero.lead": "Планшет на столе предлагает гостю блюда, напитки и десерты, принимает заказ и оплату, зовёт официанта и заряжает телефон.",
+    "hero.tag1": "Акции и рекомендации", "hero.tag2": "Вызов официанта", "hero.tag3": "Заказ по меню",
+    "hero.tag4": "Оплата картой и QR", "hero.tag5": "Зарядка для телефона",
+    "hero.alt": "Планшет JET MEDIA на столе ресторана: акция на экране, кнопки вызова официанта, меню и оплаты, USB-зарядка в основании",
 
     "calc.title": "Калькулятор прибыли",
+    "calc.eyebrow": "Расчёт для вашего зала",
+    "calc.h2": "Сколько заработает ваш ресторан",
+    "calc.sub": "Укажите число столиков, гостей и средний чек — расчёт по обоим тарифам обновится сразу.",
     "calc.month": "Месяц", "calc.year": "Год",
     "calc.tables": "Количество столиков", "calc.guests": "Посетителей в месяц", "calc.check": "Средний чек",
     "calc.season": "Сезон подписки",
@@ -262,8 +269,15 @@ const I18N = {
     "hero.title1": "More revenue", "hero.title2": "without hiring more staff",
     "hero.ctaDemo": "Book a demo", "hero.ctaInstall": "Request installation",
     "hero.t1": "added revenue", "hero.t2": "load on staff", "hero.t3": "days to launch",
+    "hero.lead": "A tablet on every table suggests dishes, drinks and desserts, takes orders and payments, calls a waiter and charges the guest's phone.",
+    "hero.tag1": "Specials & recommendations", "hero.tag2": "Call a waiter", "hero.tag3": "Order from the menu",
+    "hero.tag4": "Pay by card or QR", "hero.tag5": "Phone charging",
+    "hero.alt": "JET MEDIA table tablet: a special on screen, buttons to call a waiter, open the menu and pay, USB charging in the base",
 
     "calc.title": "Profit calculator",
+    "calc.eyebrow": "Your restaurant, in numbers",
+    "calc.h2": "How much your restaurant will earn",
+    "calc.sub": "Enter your tables, guests and average check — both plans recalculate instantly.",
     "calc.month": "Month", "calc.year": "Year",
     "calc.tables": "Number of tables", "calc.guests": "Guests per month", "calc.check": "Average check",
     "calc.season": "Subscription season",
@@ -350,8 +364,15 @@ const I18N = {
     "hero.title1": "รายได้เพิ่มขึ้น", "hero.title2": "โดยไม่ต้องจ้างพนักงานเพิ่ม",
     "hero.ctaDemo": "ขอชมการสาธิต", "hero.ctaInstall": "ขอติดตั้ง",
     "hero.t1": "รายได้ที่เพิ่มขึ้น", "hero.t2": "ภาระงานของพนักงาน", "hero.t3": "วันในการเริ่มใช้งาน",
+    "hero.lead": "แท็บเล็ตบนโต๊ะแนะนำอาหาร เครื่องดื่ม และของหวาน รับออร์เดอร์และชำระเงิน เรียกพนักงาน และชาร์จโทรศัพท์ให้ลูกค้า",
+    "hero.tag1": "โปรโมชันและเมนูแนะนำ", "hero.tag2": "เรียกพนักงาน", "hero.tag3": "สั่งอาหารจากเมนู",
+    "hero.tag4": "จ่ายด้วยบัตรหรือ QR", "hero.tag5": "ชาร์จโทรศัพท์",
+    "hero.alt": "แท็บเล็ต JET MEDIA บนโต๊ะร้านอาหาร: โปรโมชันบนหน้าจอ ปุ่มเรียกพนักงาน เมนู และชำระเงิน พร้อมช่อง USB สำหรับชาร์จ",
 
     "calc.title": "เครื่องคำนวณกำไร",
+    "calc.eyebrow": "คำนวณสำหรับร้านของคุณ",
+    "calc.h2": "ร้านของคุณจะได้รับเท่าไร",
+    "calc.sub": "ใส่จำนวนโต๊ะ ลูกค้า และยอดบิลเฉลี่ย ระบบจะคำนวณทั้งสองแพ็กเกจให้ทันที",
     "calc.month": "เดือน", "calc.year": "ปี",
     "calc.tables": "จำนวนโต๊ะ", "calc.guests": "ลูกค้าต่อเดือน", "calc.check": "ยอดบิลเฉลี่ย",
     "calc.season": "ฤดูกาลของแพ็กเกจ",
@@ -516,6 +537,10 @@ function applyLang(code){
   $$("[data-i18n-ph]").forEach(el => {
     const val = dict[el.dataset.i18nPh];
     if (val) el.placeholder = val;
+  });
+  $$("[data-i18n-alt]").forEach(el => {
+    const val = dict[el.dataset.i18nAlt];
+    if (val) el.alt = val;
   });
 
   nf = new Intl.NumberFormat(LOCALES[lang], { maximumFractionDigits: 0 });

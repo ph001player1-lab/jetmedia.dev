@@ -195,7 +195,10 @@ p{ margin:0; }
 .burger[aria-expanded="true"] span:last-child{ transform:translateY(-3.2px) rotate(-45deg); }
 
 /* ---------------- 7. Hero ---------------- */
-.hero{ position:relative; padding:clamp(44px, 6vw, 86px) 0 clamp(60px, 8vw, 110px); }
+.hero{
+  position:relative; padding:clamp(44px, 6vw, 86px) 0 clamp(60px, 8vw, 110px);
+  overflow-x:clip;   /* подсветка устройства шире колонки — не даём ей раздвинуть страницу */
+}
 
 /* Фон: фирменная дуга + мягкое синее свечение */
 .hero-bg{
@@ -212,11 +215,11 @@ p{ margin:0; }
 }
 
 .hero-grid{
-  display:grid; grid-template-columns:1.02fr .98fr;
-  gap:clamp(32px, 5vw, 72px); align-items:center;
+  display:grid; grid-template-columns:minmax(0, 1fr) auto;
+  gap:clamp(24px, 3vw, 48px); align-items:center;
 }
 .hero-title{
-  font-size:clamp(2.25rem, 5.2vw, 3.9rem);
+  font-size:clamp(2.25rem, 4.3vw, 3.9rem);
   letter-spacing:-.045em;
   max-width:15ch;
 }
@@ -226,7 +229,8 @@ p{ margin:0; }
   -webkit-background-clip:text; background-clip:text;
   color:transparent;
 }
-.hero-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:38px; }
+.hero-lead{ margin-top:22px; max-width:44ch; font-size:1.06rem; color:var(--muted); }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
 
 .hero-trust{
   display:flex; flex-wrap:wrap; gap:14px 34px;
@@ -238,6 +242,105 @@ p{ margin:0; }
   font-variant-numeric:tabular-nums; color:var(--electric);
 }
 .hero-trust span{ font-size:.82rem; color:var(--muted); }
+
+/* ---------------- 7a. Устройство на первом экране ----------------
+   Фото без фона (device.webp, 628×940). Точки, линии и подписи
+   позиционируются в координатах картинки: --x и --y в пикселях
+   исходника, CSS переводит их в проценты. На телефоне подписи
+   превращаются в нумерованную легенду под фото. */
+.hero-media{ display:flex; justify-content:center; padding:0 72px 0 150px; }
+.device{ position:relative; width:clamp(350px, 30vw, 470px); max-width:100%; margin:0; }
+
+/* Подсветка за корпусом: без неё чёрное устройство теряется на тёмном фоне */
+.device::before{
+  content:""; position:absolute; z-index:-1; left:50%; top:47%;
+  width:170%; height:96%; transform:translate(-50%, -50%);
+  background:radial-gradient(closest-side, rgba(24,123,255,.40), rgba(24,123,255,.13) 52%, transparent 78%);
+  pointer-events:none;
+}
+.device-art{ position:relative; }
+/* Световое пятно «на столе» под основанием */
+.device-art::after{
+  content:""; position:absolute; z-index:-1; left:6%; right:-4%; bottom:-3%; height:11%;
+  background:radial-gradient(closest-side, rgba(70,199,255,.30), transparent 75%);
+  pointer-events:none;
+}
+.device-img{
+  width:100%; height:auto;
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,.6)) drop-shadow(0 0 1px rgba(170,215,255,.55));
+  animation:device-in 1s var(--ease) both;
+}
+
+.device-lines{
+  position:absolute; inset:0; width:100%; height:100%;
+  overflow:visible; pointer-events:none;
+}
+.device-lines polyline{
+  fill:none; stroke:var(--electric); stroke-width:2.2; stroke-linejoin:round; opacity:.8;
+  stroke-dasharray:1; stroke-dashoffset:1;
+  animation:lead-draw .8s var(--ease) forwards;
+}
+.device-lines polyline:nth-child(2){ animation-delay:.12s; }
+.device-lines polyline:nth-child(3){ animation-delay:.24s; }
+.device-lines polyline:nth-child(4){ animation-delay:.36s; }
+.device-lines polyline:nth-child(5){ animation-delay:.48s; }
+
+.pin{
+  position:absolute; left:calc(var(--x) * 100% / 628); top:calc(var(--y) * 100% / 940);
+  width:13px; height:13px; margin:-6.5px 0 0 -6.5px; border-radius:50%;
+  display:grid; place-items:center;
+  background:radial-gradient(circle at 35% 30%, #fff, var(--electric) 62%);
+  box-shadow:0 0 0 4px rgba(70,199,255,.2), 0 0 16px rgba(70,199,255,.9);
+  font:800 0/1 var(--display); color:#04101F;   /* номер виден только в легенде на телефоне */
+}
+.pin::after{
+  content:""; position:absolute; inset:-7px; border-radius:50%;
+  border:1.5px solid rgba(70,199,255,.75);
+  animation:pin-pulse 2.6s var(--ease) infinite;
+}
+.pin:nth-of-type(2)::after{ animation-delay:.5s; }
+.pin:nth-of-type(3)::after{ animation-delay:1s; }
+.pin:nth-of-type(4)::after{ animation-delay:1.5s; }
+.pin:nth-of-type(5)::after{ animation-delay:2s; }
+
+/* Подписи: слой того же размера, что и картинка */
+.tags{ position:absolute; left:0; top:0; width:100%; aspect-ratio:628 / 940; pointer-events:none; }
+.tag{
+  position:absolute; left:calc(var(--x) * 100% / 628); top:calc(var(--y) * 100% / 940);
+  display:flex; align-items:center; gap:9px;
+  width:max-content; max-width:10.5em; padding:8px 13px;
+  border:1px solid rgba(70,199,255,.36); border-radius:12px;
+  background:rgba(8,14,32,.8);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 12px 28px rgba(0,0,0,.45);
+  font-family:var(--display); font-weight:700; font-size:.8rem; line-height:1.28; letter-spacing:-.01em;
+  color:var(--text); text-wrap:balance;
+  animation:tag-in .6s var(--ease) both;
+}
+.tag-l{ transform:translate(-100%, -50%); text-align:right; }
+.tag-r{ transform:translate(0, -50%); }
+.tag b{ display:none; }
+.tag:nth-child(2){ animation-delay:.12s; }
+.tag:nth-child(3){ animation-delay:.24s; }
+.tag:nth-child(4){ animation-delay:.36s; }
+.tag:nth-child(5){ animation-delay:.48s; }
+
+@keyframes device-in{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:none; } }
+@keyframes lead-draw{ to{ stroke-dashoffset:0; } }
+@keyframes tag-in{ from{ opacity:0; } to{ opacity:1; } }
+@keyframes pin-pulse{
+  0%  { transform:scale(.55); opacity:.95; }
+  70% { transform:scale(1.6);  opacity:0; }
+  100%{ transform:scale(1.6);  opacity:0; }
+}
+
+/* ---------------- 7b. Секция калькулятора ---------------- */
+.calc-grid{
+  display:grid; grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr);
+  gap:clamp(32px, 5vw, 72px); align-items:start;
+}
+/* Заголовок остаётся на виду, пока листаете высокий калькулятор */
+.calc-intro{ margin-bottom:0; position:sticky; top:110px; }
 
 /* ---------------- 8. Калькулятор ---------------- */
 .calc{ padding:clamp(24px, 3vw, 34px); }
@@ -525,9 +628,17 @@ input[type=range]::-moz-range-thumb{
 .ops-grid .reveal:nth-child(3){ transition-delay:.12s; }
 
 /* ---------------- 17. Адаптив ---------------- */
+/* Широкий экран (презентация): первый экран занимает всю высоту окна */
+@media (min-width: 1081px){
+  .hero{ display:grid; align-content:center; min-height:calc(100vh - 70px); min-height:calc(100svh - 70px); }
+}
+
 @media (max-width: 1080px){
   .hero-grid{ grid-template-columns:1fr; }
   .hero-title{ max-width:18ch; }
+  .hero-media{ margin-top:12px; }
+  .calc-grid{ grid-template-columns:1fr; }
+  .calc-intro{ max-width:640px; position:static; }
 }
 
 @media (max-width: 860px){
@@ -551,6 +662,40 @@ input[type=range]::-moz-range-thumb{
   .arc{ top:120px; height:220px; }
   .plans{ grid-template-columns:1fr; }
   .foot-inner{ grid-template-columns:1fr; gap:26px; }
+}
+
+/* Телефон: подписи уходят в легенду под фото, на устройстве остаются номера */
+@media (max-width: 640px){
+  /* Фото сразу под заголовком: на телефоне оно тоже в самом начале */
+  .hero-grid{ gap:0; }
+  .hero-copy{ display:contents; }
+  .hero-copy > .eyebrow{ order:1; }
+  .hero-title{ order:2; }
+  .hero-media{ order:3; margin:30px 0 6px; }
+  .hero-lead{ order:4; }
+  .hero-cta{ order:5; }
+  .hero-trust{ order:6; }
+
+  .hero-media{ display:block; padding:0; }
+  .device{ width:100%; }
+  .device::before{ width:130%; height:70%; top:36%; }
+  .device-art{ width:min(300px, 76vw); margin-inline:auto; }
+  .device-lines{ display:none; }
+  .pin{ width:22px; height:22px; margin:-11px 0 0 -11px; font-size:.72rem; }
+  .pin::after{ inset:-5px; }
+  .tags{
+    position:static; width:auto; aspect-ratio:auto;
+    display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:26px;
+  }
+  .tag{
+    position:static; transform:none; width:auto; max-width:none;
+    padding:9px 11px; font-size:.78rem; text-align:left;
+  }
+  .tag b{
+    display:grid; place-items:center; flex-shrink:0;
+    width:20px; height:20px; border-radius:50%;
+    background:var(--electric); color:#04101F; font-size:.68rem; font-weight:800;
+  }
 }
 
 @media (max-width: 520px){
