@@ -33,7 +33,7 @@ const I18N = {
 
   ru: {
     "meta.title": "JET MEDIA — цифровой официант для ресторанов. Дополнительная выручка без найма персонала",
-    "meta.desc": "JET MEDIA устанавливает планшеты-официанты на столы ресторана: AI-апселл, мультиязычное меню, оплата со стола, отзывы и аналитика продаж.",
+    "meta.desc": "JET MEDIA ставит планшеты на столы ресторана: меню с фото на языке гостя, рекомендации шефа и акции, вызов официанта и зарядка для телефона. Заказ со стола, интеграция с кассой, аналитика и AI — дополнительные модули.",
 
     "nav.calc": "Калькулятор", "nav.ops": "Возможности",
     "nav.pricing": "Тарифы", "nav.faq": "Вопросы", "nav.cta": "Демонстрация",
@@ -42,10 +42,10 @@ const I18N = {
     "hero.title1": "Дополнительная выручка", "hero.title2": "без найма персонала",
     "hero.ctaDemo": "Заказать демонстрацию", "hero.ctaInstall": "Заказать установку",
     "hero.t1": "к выручке зала", "hero.t2": "нагрузки на персонал", "hero.t3": "дня на запуск",
-    "hero.lead": "Планшет на столе предлагает гостю блюда, напитки и десерты, принимает заказ и оплату, зовёт официанта и заряжает телефон.",
-    "hero.tag1": "Акции и рекомендации", "hero.tag2": "Вызов официанта", "hero.tag3": "Заказ по меню",
-    "hero.tag4": "Оплата картой и QR", "hero.tag5": "Зарядка для телефона",
-    "hero.alt": "Планшет JET MEDIA на столе ресторана: акция на экране, кнопки вызова официанта, меню и оплаты, USB-зарядка в основании",
+    "hero.lead": "Планшет на столе показывает гостю меню с фото на его языке, предлагает блюда от шефа и акции, зовёт официанта, просит счёт и заряжает телефон.",
+    "hero.tag1": "Акции и рекомендации", "hero.tag2": "Вызов официанта", "hero.tag3": "Меню с фото",
+    "hero.tag4": "Запрос счёта", "hero.tag5": "Зарядка для телефона",
+    "hero.alt": "Планшет JET MEDIA на столе ресторана: акция на экране, кнопки вызова официанта, меню и счёта, USB-зарядка в основании",
 
     "calc.title": "Калькулятор прибыли",
     "calc.eyebrow": "Расчёт для вашего зала",
@@ -70,22 +70,19 @@ const I18N = {
     "calc.devices": "Аренда устройств",
     "calc.totalMonth": "Расходы в месяц", "calc.totalYear": "Расходы за год",
     "calc.net": "Чистый результат",
-    "calc.note": "При подписании договора: подключение — {setup}. Онлайн-оплата — {fee} от платежа. Цены с НДС {vat}%.",
+    "calc.note": "Разово при подписании договора — подключение {setup}. Дополнительные модули в расчёт не входят. Цены с НДС {vat}%.",
 
     "ops.eyebrow": "Что получает ресторан",
     "ops.title": "Не только продажи — вся операционка стола",
     "ops.c1t": "Нагрузки на персонал",
-    "ops.c1d": "Устройство знакомит с меню, отвечает на вопросы, помогает оформить заказ, вызывает официанта и помогает с оплатой. Команда занимается качеством сервиса, а не рутиной.",
-    "ops.c2t": "Полная совместимость с вашей системой",
-    "ops.c2d": "Заказы автоматически передаются на кухню, меню и цены всегда актуальны, стоп-листы синхронизируются. Привычные процессы не меняются.",
+    "ops.c1d": "Устройство знакомит гостя с меню на его языке, подсказывает блюда шефа и акции, зовёт официанта и просит счёт. Команда занимается качеством сервиса, а не рутиной.",
+    "ops.c2t": "Кассу менять не нужно",
+    "ops.c2d": "Базовый пакет работает без подключения к кассе, привычные процессы не меняются. Если нужно, чтобы заказы сразу уходили на кухню, а меню, цены и стоп-листы синхронизировались, подключим интеграцию — это дополнительный модуль.",
     "ops.c3t": "Встроенный Power Bank",
     "ops.c3d": "Гость заряжает телефон прямо за столом и остаётся в зале дольше. Внимание к деталям, которое замечают и о котором пишут в отзывах.",
-    "ops.capsTitle": "Возможности платформы",
-    "ops.f1": "Электронное меню", "ops.f2": "Заказ со стола", "ops.f3": "Вызов официанта",
-    "ops.f4": "Запрос счёта", "ops.f5": "Оплата со стола", "ops.f6": "Интеграция с системой ресторана",
-    "ops.f7": "Мультиязычный интерфейс", "ops.f8": "Продвижение спецпредложений",
-    "ops.f9": "Программа лояльности", "ops.f10": "Получение отзывов",
-    "ops.f11": "Аналитика продаж", "ops.f12": "Удалённое управление контентом",
+    "ops.capsBase": "В базовом пакете",
+    "ops.capsExtra": "Дополнительные модули — за отдельную плату",
+    "ops.capsLink": "Цены модулей",
 
     "price.eyebrow": "Тарифы", "price.title": "Два тарифа",
     "price.sub": "Стоимость = софт и поддержка за ресторан + аренда каждого устройства. Тарифы отличаются только рекламой на экране. Цена зависит от сезона: высокий — ноябрь\u2060–\u2060март, низкий — апрель\u2060–\u2060октябрь.",
@@ -93,37 +90,36 @@ const I18N = {
     "price.subStd": "С рекламой сети JET MEDIA — без рекламы конкурентов",
     "price.subPrm": "Без сторонней рекламы",
     "price.platformK": "Софт и поддержка",
-    "price.per": "в месяц", "price.saasNote": "за ресторан: меню, заказы, AI-рекомендации, аналитика, обновления и техподдержка",
+    "price.per": "в месяц", "price.saasNote": "за ресторан — базовый пакет",
     "price.devicesK": "Аренда устройств",
     "price.perDevice": "за каждое устройство в месяц",
     "price.yourHall": "Для вашего зала:",
     "price.all": "Всё из Standard, плюс:", "price.badge": "Для премиальных заведений",
-    "price.s1": "Аренда оборудования",
-    "price.s2": "Программное обеспечение",
-    "price.s3": "Искусственный интеллект",
-    "price.s4": "Регулярные обновления",
-    "price.s5": "Техническая поддержка",
-    "price.s6": "Облачная инфраструктура",
-    "price.s7": "Удалённое управление устройствами",
-    "price.s8": "Аналитика",
-    "price.s9": "Управление меню и контентом",
+    "price.s1": "Устройство на каждый стол с зарядкой для телефона",
+    "price.s2": "Интерактивное меню с фото и описанием блюд",
+    "price.s3": "Меню на нескольких языках",
+    "price.s4": "Рекомендации шеф-повара, акции и сезонные новинки",
+    "price.s5": "Вызов официанта и запрос счёта",
+    "price.s6": "Обновления и техническая поддержка",
     "price.p1": "Без рекламы сети JET MEDIA",
     "price.p2": "Экран полностью под ваши акции и рекомендации",
     "price.ctaStd": "Заказать установку", "price.ctaPrm": "Заказать демонстрацию",
-    "price.noteSetup": "Подключение и настройка — {setup} при подписании договора: установка устройств, загрузка меню, обучение персонала.",
-    "price.notePay": "Онлайн-оплата через JET MEDIA — {fee} от суммы платежа; комиссия банка — по его тарифу.",
+    "price.noteSetup": "Подключение базового пакета — {setup} при подписании договора: установка устройств, загрузка меню, обучение персонала.",
     "price.noteTerms": "Договор — от {minMonths} мес., в первые {cancelMonths} мес. можно отказаться. Все цены с НДС {vat}%.",
     "price.open": "Открыть прайс-лист", "price.pdf": "Скачать PDF",
+    "addons.title": "Дополнительные модули",
+    "addons.sub": "Не входят в базовый пакет. Подключаются к любому тарифу — сразу или позже: настройка оплачивается разово, абонплата модуля прибавляется к ежемесячной оплате. Каждому модулю нужно дополнительное время на настройку и связь с вашими системами.",
+    "addons.monthly": "+{price} в месяц", "addons.setup": "Настройка — {price}, разово",
 
     "faq.eyebrow": "Вопросы", "faq.title": "Что важно знать до установки",
     "faq.q1": "Что делать, если устройство сломалось?",
     "faq.a1": "При гарантийном случае меняем бесплатно. Если повреждение произошло по вине клиента, ремонт оплачивается отдельно.",
     "faq.q2": "Нужно ли менять кассовую систему?",
-    "faq.a2": "Нет. Мы интегрируемся с вашей системой управления: заказы уходят на кухню, меню, цены и стоп-листы синхронизируются автоматически.",
+    "faq.a2": "Нет. Базовый пакет работает отдельно от кассы. Если нужно, чтобы заказы со стола сразу уходили на кухню, а меню, цены и стоп-листы синхронизировались, подключим интеграцию с вашей системой — это дополнительный модуль.",
     "faq.q3": "Можно ли отказаться?",
     "faq.a3": "Договор заключается минимум на {minMonths} мес. В первые {cancelMonths} мес. от него можно отказаться — в конце оплаченного периода мы просто заберём оборудование.",
     "faq.q4": "Сколько занимает установка?",
-    "faq.a4": "Обычно от одного до трёх дней, включая настройку меню и обучение персонала.",
+    "faq.a4": "Базовый пакет — обычно от одного до трёх дней, включая загрузку меню и обучение персонала. Дополнительные модули настраиваются отдельно и требуют больше времени: срок зависит от модуля и вашей кассы, согласуем его при подключении.",
 
     "form.title": "Оставьте заявку",
     "form.sub": "Свяжемся в течение рабочего дня, покажем систему вживую и посчитаем количество устройств для вашего зала.",
@@ -145,7 +141,7 @@ const I18N = {
 
   en: {
     "meta.title": "JET MEDIA — a digital waiter for restaurants. More revenue without hiring",
-    "meta.desc": "JET MEDIA installs digital-waiter tablets on your restaurant tables: AI upsell, multilingual menu, payment from the table, reviews and sales analytics.",
+    "meta.desc": "JET MEDIA puts tablets on restaurant tables: a photo menu in the guest's language, chef's picks and specials, a waiter call button and phone charging. Table ordering, POS integration, analytics and AI are optional add-ons.",
 
     "nav.calc": "Calculator", "nav.ops": "Features",
     "nav.pricing": "Pricing", "nav.faq": "FAQ", "nav.cta": "Book a demo",
@@ -154,10 +150,10 @@ const I18N = {
     "hero.title1": "More revenue", "hero.title2": "without hiring more staff",
     "hero.ctaDemo": "Book a demo", "hero.ctaInstall": "Request installation",
     "hero.t1": "added revenue", "hero.t2": "load on staff", "hero.t3": "days to launch",
-    "hero.lead": "A tablet on every table suggests dishes, drinks and desserts, takes orders and payments, calls a waiter and charges the guest's phone.",
-    "hero.tag1": "Specials & recommendations", "hero.tag2": "Call a waiter", "hero.tag3": "Order from the menu",
-    "hero.tag4": "Pay by card or QR", "hero.tag5": "Phone charging",
-    "hero.alt": "JET MEDIA table tablet: a special on screen, buttons to call a waiter, open the menu and pay, USB charging in the base",
+    "hero.lead": "A tablet on every table shows guests a photo menu in their language, suggests chef's picks and specials, calls a waiter, asks for the bill and charges their phone.",
+    "hero.tag1": "Specials & recommendations", "hero.tag2": "Call a waiter", "hero.tag3": "Photo menu",
+    "hero.tag4": "Ask for the bill", "hero.tag5": "Phone charging",
+    "hero.alt": "JET MEDIA table tablet: a special on screen, buttons to call a waiter, open the menu and ask for the bill, USB charging in the base",
 
     "calc.title": "Profit calculator",
     "calc.eyebrow": "Your restaurant, in numbers",
@@ -182,22 +178,19 @@ const I18N = {
     "calc.devices": "Device rental",
     "calc.totalMonth": "Costs per month", "calc.totalYear": "Costs per year",
     "calc.net": "Net result",
-    "calc.note": "At contract signing: setup — {setup}. Online payments — {fee} of the amount. Prices include {vat}% VAT.",
+    "calc.note": "One-time at contract signing: setup {setup}. Add-on modules are not included in this estimate. Prices include {vat}% VAT.",
 
     "ops.eyebrow": "What the restaurant gets",
     "ops.title": "Not just sales — the whole table operation",
     "ops.c1t": "Less load on your staff",
-    "ops.c1d": "The device introduces the menu, answers questions, helps place the order, calls a server and assists with payment. Your team focuses on service quality instead of routine.",
-    "ops.c2t": "Full compatibility with your system",
-    "ops.c2d": "Orders go straight to the kitchen, menu and prices stay current, stop-lists sync automatically. Your existing processes stay the same.",
+    "ops.c1d": "The device shows guests the menu in their language, suggests chef's picks and specials, calls a server and asks for the bill. Your team focuses on service quality instead of routine.",
+    "ops.c2t": "No need to change your POS",
+    "ops.c2d": "The base package works without a POS connection, so your processes stay the same. If you want orders to go straight to the kitchen and the menu, prices and stop-lists to sync, we add POS integration as an optional module.",
     "ops.c3t": "Built-in power bank",
     "ops.c3d": "Guests charge their phone right at the table and stay longer. The kind of detail people notice and mention in reviews.",
-    "ops.capsTitle": "Platform capabilities",
-    "ops.f1": "Digital menu", "ops.f2": "Order from the table", "ops.f3": "Call a server",
-    "ops.f4": "Request the bill", "ops.f5": "Pay from the table", "ops.f6": "Integration with your POS",
-    "ops.f7": "Multilingual interface", "ops.f8": "Promoting special offers",
-    "ops.f9": "Loyalty programme", "ops.f10": "Collecting reviews",
-    "ops.f11": "Sales analytics", "ops.f12": "Remote content management",
+    "ops.capsBase": "In the base package",
+    "ops.capsExtra": "Add-on modules — paid separately",
+    "ops.capsLink": "Module prices",
 
     "price.eyebrow": "Pricing", "price.title": "Two plans",
     "price.sub": "Price = software & support per restaurant + rent for every device. The plans differ only in the ads on screen. Prices depend on the season: high is November\u2060–\u2060March, low is April\u2060–\u2060October.",
@@ -205,37 +198,36 @@ const I18N = {
     "price.subStd": "With JET MEDIA network ads — never competitors' ads",
     "price.subPrm": "No third-party ads",
     "price.platformK": "Software & support",
-    "price.per": "per month", "price.saasNote": "per restaurant: menu, orders, AI recommendations, analytics, updates and support",
+    "price.per": "per month", "price.saasNote": "per restaurant — base package",
     "price.devicesK": "Device rental",
     "price.perDevice": "per device per month",
     "price.yourHall": "For your floor:",
     "price.all": "Everything in Standard, plus:", "price.badge": "For upscale venues",
-    "price.s1": "Equipment rental",
-    "price.s2": "Software",
-    "price.s3": "Artificial intelligence",
-    "price.s4": "Regular updates",
-    "price.s5": "Technical support",
-    "price.s6": "Cloud infrastructure",
-    "price.s7": "Remote device management",
-    "price.s8": "Analytics",
-    "price.s9": "Menu and content management",
+    "price.s1": "A device on every table with phone charging",
+    "price.s2": "Interactive menu with photos and dish descriptions",
+    "price.s3": "Menu in several languages",
+    "price.s4": "Chef's picks, specials and seasonal dishes",
+    "price.s5": "Call a waiter and ask for the bill",
+    "price.s6": "Updates and technical support",
     "price.p1": "No JET MEDIA network ads",
     "price.p2": "The whole screen for your own specials and recommendations",
     "price.ctaStd": "Request installation", "price.ctaPrm": "Book a demo",
-    "price.noteSetup": "Setup — {setup} at contract signing: device installation, menu upload, staff training.",
-    "price.notePay": "Online payments via JET MEDIA — {fee} of the amount; the bank charges its own fee.",
+    "price.noteSetup": "Base package setup — {setup} at contract signing: device installation, menu upload, staff training.",
     "price.noteTerms": "Contract from {minMonths} months; you can cancel during the first {cancelMonths} months. All prices include {vat}% VAT.",
     "price.open": "Open the price list", "price.pdf": "Download PDF",
+    "addons.title": "Add-on modules",
+    "addons.sub": "Not part of the base package. Add them to either plan, now or later: setup is a one-time fee, and the module's monthly fee is added to your monthly bill. Each module needs extra time to set up and connect to your systems.",
+    "addons.monthly": "+{price} per month", "addons.setup": "Setup — {price}, one-time",
 
     "faq.eyebrow": "FAQ", "faq.title": "What to know before installation",
     "faq.q1": "What if a device breaks?",
     "faq.a1": "Warranty cases are replaced free of charge. Damage caused by the client is repaired at extra cost.",
     "faq.q2": "Do I need to change my POS system?",
-    "faq.a2": "No. We integrate with your management system: orders go to the kitchen, menu, prices and stop-lists sync automatically.",
+    "faq.a2": "No. The base package works separately from your POS. If you want table orders to go straight to the kitchen and the menu, prices and stop-lists to sync, we'll connect your system as an optional add-on module.",
     "faq.q3": "Can I cancel?",
     "faq.a3": "The contract runs for at least {minMonths} months. During the first {cancelMonths} months you can cancel — we simply collect the equipment at the end of the paid period.",
     "faq.q4": "How long does installation take?",
-    "faq.a4": "Usually one to three days, including menu setup and staff training.",
+    "faq.a4": "The base package usually takes one to three days, including menu upload and staff training. Add-on modules are set up separately and take longer: the timing depends on the module and your POS, and we agree on it when you order.",
 
     "form.title": "Send a request",
     "form.sub": "We'll get back to you within one business day, show the system live and calculate how many devices your floor needs.",
@@ -257,7 +249,7 @@ const I18N = {
 
   th: {
     "meta.title": "JET MEDIA — พนักงานเสิร์ฟดิจิทัลสำหรับร้านอาหาร เพิ่มรายได้โดยไม่ต้องจ้างพนักงานเพิ่ม",
-    "meta.desc": "JET MEDIA ติดตั้งแท็บเล็ตพนักงานเสิร์ฟดิจิทัลบนโต๊ะร้านอาหาร ทั้งการแนะนำเมนูด้วย AI เมนูหลายภาษา ชำระเงินจากโต๊ะ รีวิว และการวิเคราะห์ยอดขาย",
+    "meta.desc": "JET MEDIA ติดตั้งแท็บเล็ตบนโต๊ะร้านอาหาร: เมนูพร้อมรูปภาพในภาษาของลูกค้า เมนูแนะนำจากเชฟและโปรโมชัน ปุ่มเรียกพนักงาน และที่ชาร์จโทรศัพท์ ส่วนการสั่งอาหารจากโต๊ะ การเชื่อมต่อ POS การวิเคราะห์ และ AI เป็นโมดูลเสริม",
 
     "nav.calc": "คำนวณกำไร", "nav.ops": "ความสามารถ",
     "nav.pricing": "แพ็กเกจ", "nav.faq": "คำถามที่พบบ่อย", "nav.cta": "ขอชมการสาธิต",
@@ -266,10 +258,10 @@ const I18N = {
     "hero.title1": "รายได้เพิ่มขึ้น", "hero.title2": "โดยไม่ต้องจ้างพนักงานเพิ่ม",
     "hero.ctaDemo": "ขอชมการสาธิต", "hero.ctaInstall": "ขอติดตั้ง",
     "hero.t1": "รายได้ที่เพิ่มขึ้น", "hero.t2": "ภาระงานของพนักงาน", "hero.t3": "วันในการเริ่มใช้งาน",
-    "hero.lead": "แท็บเล็ตบนโต๊ะแนะนำอาหาร เครื่องดื่ม และของหวาน รับออร์เดอร์และชำระเงิน เรียกพนักงาน และชาร์จโทรศัพท์ให้ลูกค้า",
-    "hero.tag1": "โปรโมชันและเมนูแนะนำ", "hero.tag2": "เรียกพนักงาน", "hero.tag3": "สั่งอาหารจากเมนู",
-    "hero.tag4": "จ่ายด้วยบัตรหรือ QR", "hero.tag5": "ชาร์จโทรศัพท์",
-    "hero.alt": "แท็บเล็ต JET MEDIA บนโต๊ะร้านอาหาร: โปรโมชันบนหน้าจอ ปุ่มเรียกพนักงาน เมนู และชำระเงิน พร้อมช่อง USB สำหรับชาร์จ",
+    "hero.lead": "แท็บเล็ตบนโต๊ะแสดงเมนูพร้อมรูปภาพในภาษาของลูกค้า แนะนำเมนูจากเชฟและโปรโมชัน เรียกพนักงาน ขอเช็กบิล และชาร์จโทรศัพท์ให้ลูกค้า",
+    "hero.tag1": "โปรโมชันและเมนูแนะนำ", "hero.tag2": "เรียกพนักงาน", "hero.tag3": "เมนูพร้อมรูปภาพ",
+    "hero.tag4": "ขอเช็กบิล", "hero.tag5": "ชาร์จโทรศัพท์",
+    "hero.alt": "แท็บเล็ต JET MEDIA บนโต๊ะร้านอาหาร: โปรโมชันบนหน้าจอ ปุ่มเรียกพนักงาน เมนู และเช็กบิล พร้อมช่อง USB สำหรับชาร์จ",
 
     "calc.title": "เครื่องคำนวณกำไร",
     "calc.eyebrow": "คำนวณสำหรับร้านของคุณ",
@@ -294,22 +286,19 @@ const I18N = {
     "calc.devices": "ค่าเช่าอุปกรณ์",
     "calc.totalMonth": "ค่าใช้จ่ายต่อเดือน", "calc.totalYear": "ค่าใช้จ่ายต่อปี",
     "calc.net": "ผลลัพธ์สุทธิ",
-    "calc.note": "เมื่อเซ็นสัญญา: ค่าติดตั้ง {setup} · ชำระเงินออนไลน์ {fee} ของยอดชำระ · ราคารวม VAT {vat}%",
+    "calc.note": "ครั้งเดียวเมื่อเซ็นสัญญา: ค่าติดตั้ง {setup} · ไม่รวมโมดูลเสริม · ราคารวม VAT {vat}%",
 
     "ops.eyebrow": "สิ่งที่ร้านได้รับ",
     "ops.title": "ไม่ใช่แค่ยอดขาย แต่คือการดำเนินงานทั้งโต๊ะ",
     "ops.c1t": "ภาระงานของพนักงาน",
-    "ops.c1d": "อุปกรณ์แนะนำเมนู ตอบคำถาม ช่วยสั่งอาหาร เรียกพนักงาน และช่วยเรื่องการชำระเงิน ทีมงานจึงมีเวลาดูแลคุณภาพบริการแทนงานประจำ",
-    "ops.c2t": "เข้ากันได้เต็มที่กับระบบของคุณ",
-    "ops.c2d": "ออร์เดอร์ส่งเข้าครัวอัตโนมัติ เมนูและราคาอัปเดตเสมอ สต็อปลิสต์ซิงก์ให้เอง กระบวนการเดิมของร้านไม่ต้องเปลี่ยน",
+    "ops.c1d": "อุปกรณ์แสดงเมนูในภาษาของลูกค้า แนะนำเมนูจากเชฟและโปรโมชัน เรียกพนักงาน และขอเช็กบิล ทีมงานจึงมีเวลาดูแลคุณภาพบริการแทนงานประจำ",
+    "ops.c2t": "ไม่ต้องเปลี่ยนระบบ POS",
+    "ops.c2d": "แพ็กเกจพื้นฐานใช้งานได้โดยไม่ต้องเชื่อมต่อ POS กระบวนการเดิมของร้านจึงไม่เปลี่ยน หากต้องการให้ออร์เดอร์ส่งเข้าครัวทันที และเมนู ราคา และเมนูที่หมดซิงก์กัน เราเชื่อมต่อ POS ให้ได้เป็นโมดูลเสริม",
     "ops.c3t": "พาวเวอร์แบงก์ในตัว",
     "ops.c3d": "ลูกค้าชาร์จโทรศัพท์ได้ที่โต๊ะและอยู่ในร้านนานขึ้น เป็นรายละเอียดที่ลูกค้าสังเกตเห็นและพูดถึงในรีวิว",
-    "ops.capsTitle": "ความสามารถของแพลตฟอร์ม",
-    "ops.f1": "เมนูอิเล็กทรอนิกส์", "ops.f2": "สั่งอาหารจากโต๊ะ", "ops.f3": "เรียกพนักงาน",
-    "ops.f4": "ขอใบเสร็จ", "ops.f5": "ชำระเงินจากโต๊ะ", "ops.f6": "เชื่อมต่อกับระบบร้าน",
-    "ops.f7": "อินเทอร์เฟซหลายภาษา", "ops.f8": "โปรโมตข้อเสนอพิเศษ",
-    "ops.f9": "โปรแกรมสะสมคะแนน", "ops.f10": "เก็บรีวิวจากลูกค้า",
-    "ops.f11": "วิเคราะห์ยอดขาย", "ops.f12": "จัดการเนื้อหาจากระยะไกล",
+    "ops.capsBase": "ในแพ็กเกจพื้นฐาน",
+    "ops.capsExtra": "โมดูลเสริม — มีค่าใช้จ่ายเพิ่ม",
+    "ops.capsLink": "ราคาโมดูล",
 
     "price.eyebrow": "แพ็กเกจ", "price.title": "สองแพ็กเกจ",
     "price.sub": "ราคา = ซอฟต์แวร์และการสนับสนุนต่อร้าน + ค่าเช่าอุปกรณ์ทุกเครื่อง แพ็กเกจต่างกันแค่โฆษณาบนหน้าจอ ราคาขึ้นกับฤดูกาล: ไฮซีซัน พฤศจิกายน\u2060–\u2060มีนาคม โลว์ซีซัน เมษายน\u2060–\u2060ตุลาคม",
@@ -317,37 +306,36 @@ const I18N = {
     "price.subStd": "มีโฆษณาเครือข่าย JET MEDIA ไม่มีโฆษณาร้านคู่แข่ง",
     "price.subPrm": "ไม่มีโฆษณาจากภายนอก",
     "price.platformK": "ซอฟต์แวร์และการสนับสนุน",
-    "price.per": "ต่อเดือน", "price.saasNote": "ต่อร้าน: เมนู ออร์เดอร์ AI แนะนำเมนู การวิเคราะห์ อัปเดต และการสนับสนุน",
+    "price.per": "ต่อเดือน", "price.saasNote": "ต่อร้าน — แพ็กเกจพื้นฐาน",
     "price.devicesK": "ค่าเช่าอุปกรณ์",
     "price.perDevice": "ต่อเครื่องต่อเดือน",
     "price.yourHall": "สำหรับร้านของคุณ:",
     "price.all": "ทุกอย่างใน Standard และเพิ่ม:", "price.badge": "สำหรับร้านระดับพรีเมียม",
-    "price.s1": "ค่าเช่าอุปกรณ์",
-    "price.s2": "ซอฟต์แวร์",
-    "price.s3": "ปัญญาประดิษฐ์ (AI)",
-    "price.s4": "อัปเดตอย่างสม่ำเสมอ",
-    "price.s5": "การสนับสนุนทางเทคนิค",
-    "price.s6": "โครงสร้างพื้นฐานบนคลาวด์",
-    "price.s7": "จัดการอุปกรณ์จากระยะไกล",
-    "price.s8": "การวิเคราะห์ข้อมูล",
-    "price.s9": "จัดการเมนูและเนื้อหา",
+    "price.s1": "อุปกรณ์บนทุกโต๊ะ พร้อมที่ชาร์จโทรศัพท์",
+    "price.s2": "เมนูอินเทอร์แอกทีฟพร้อมรูปภาพและคำอธิบายอาหาร",
+    "price.s3": "เมนูหลายภาษา",
+    "price.s4": "เมนูแนะนำจากเชฟ โปรโมชัน และเมนูตามฤดูกาล",
+    "price.s5": "เรียกพนักงานและขอเช็กบิล",
+    "price.s6": "อัปเดตและการสนับสนุนทางเทคนิค",
     "price.p1": "ไม่มีโฆษณาของเครือข่าย JET MEDIA",
     "price.p2": "หน้าจอทั้งหมดสำหรับโปรโมชันและเมนูแนะนำของร้านคุณ",
     "price.ctaStd": "ขอติดตั้ง", "price.ctaPrm": "ขอชมการสาธิต",
-    "price.noteSetup": "ค่าติดตั้งและตั้งค่า {setup} ชำระเมื่อเซ็นสัญญา: ติดตั้งอุปกรณ์ อัปโหลดเมนู อบรมพนักงาน",
-    "price.notePay": "ชำระเงินออนไลน์ผ่าน JET MEDIA {fee} ของยอดชำระ ค่าธรรมเนียมธนาคารคิดแยกตามอัตราของธนาคาร",
+    "price.noteSetup": "ค่าติดตั้งแพ็กเกจพื้นฐาน {setup} ชำระเมื่อเซ็นสัญญา: ติดตั้งอุปกรณ์ อัปโหลดเมนู อบรมพนักงาน",
     "price.noteTerms": "สัญญาขั้นต่ำ {minMonths} เดือน ยกเลิกได้ภายใน {cancelMonths} เดือนแรก ราคาทั้งหมดรวม VAT {vat}%",
     "price.open": "เปิดรายการราคา", "price.pdf": "ดาวน์โหลด PDF",
+    "addons.title": "โมดูลเสริม",
+    "addons.sub": "ไม่รวมอยู่ในแพ็กเกจพื้นฐาน เพิ่มได้กับทุกแพ็กเกจ ทั้งตอนเริ่มใช้งานหรือภายหลัง: ค่าตั้งค่าชำระครั้งเดียว และค่าบริการรายเดือนของโมดูลบวกเพิ่มในค่าบริการรายเดือน แต่ละโมดูลต้องใช้เวลาเพิ่มในการตั้งค่าและเชื่อมต่อกับระบบของร้าน",
+    "addons.monthly": "+{price} ต่อเดือน", "addons.setup": "ค่าตั้งค่า {price} ครั้งเดียว",
 
     "faq.eyebrow": "คำถามที่พบบ่อย", "faq.title": "สิ่งที่ควรรู้ก่อนติดตั้ง",
     "faq.q1": "ถ้าอุปกรณ์เสียต้องทำอย่างไร",
     "faq.a1": "หากอยู่ในการรับประกัน เราเปลี่ยนให้ฟรี หากเสียหายจากการใช้งานของลูกค้า คิดค่าซ่อมแยกต่างหาก",
     "faq.q2": "ต้องเปลี่ยนระบบ POS หรือไม่",
-    "faq.a2": "ไม่ต้อง เราเชื่อมต่อกับระบบจัดการเดิมของคุณ ออร์เดอร์ส่งเข้าครัว เมนู ราคา และสต็อปลิสต์ซิงก์อัตโนมัติ",
+    "faq.a2": "ไม่ต้อง แพ็กเกจพื้นฐานทำงานแยกจากระบบ POS หากต้องการให้ออร์เดอร์จากโต๊ะส่งเข้าครัวทันที และเมนู ราคา และเมนูที่หมดซิงก์กัน เราเชื่อมต่อกับระบบของคุณได้เป็นโมดูลเสริม",
     "faq.q3": "ยกเลิกได้หรือไม่",
     "faq.a3": "สัญญามีระยะเวลาอย่างน้อย {minMonths} เดือน ในช่วง {cancelMonths} เดือนแรกสามารถยกเลิกได้ เราจะรับอุปกรณ์คืนเมื่อสิ้นสุดรอบที่ชำระแล้ว",
     "faq.q4": "ติดตั้งใช้เวลานานเท่าไร",
-    "faq.a4": "โดยทั่วไป 1–3 วัน รวมการตั้งค่าเมนูและอบรมพนักงาน",
+    "faq.a4": "แพ็กเกจพื้นฐานโดยทั่วไปใช้เวลา 1–3 วัน รวมการอัปโหลดเมนูและอบรมพนักงาน ส่วนโมดูลเสริมตั้งค่าแยกและใช้เวลามากกว่า ระยะเวลาขึ้นกับโมดูลและระบบ POS ของร้าน ซึ่งเราจะตกลงกันเมื่อสั่งโมดูล",
 
     "form.title": "ส่งคำขอ",
     "form.sub": "เราจะติดต่อกลับภายในหนึ่งวันทำการ สาธิตระบบให้ดูจริง และคำนวณจำนวนเครื่องที่ร้านของคุณต้องใช้",
@@ -427,7 +415,6 @@ function renderClaims(){
 function renderTemplates(){
   const vars = {
     setup:        money(CONFIG.setupFee),
-    fee:          pctNum(CONFIG.paymentFee) + "%",
     vat:          pctNum(CONFIG.vat),
     low:          plainN(CONFIG.pricing.low.months),
     high:         plainN(CONFIG.pricing.high.months),
@@ -437,6 +424,45 @@ function renderTemplates(){
     range:        pctNum(CONFIG.sliders.uplift.min) + "\u2060–\u2060" + pctNum(CONFIG.sliders.uplift.max)
   };
   $$("[data-tpl]").forEach(el => { el.textContent = tpl(I18N[lang][el.dataset.tpl], vars); });
+}
+
+/* Дополнительные модули — из CONFIG.addons (config.js): карточки с ценами
+   под тарифами и названия в блоке «Что получает ресторан». Нет модулей —
+   блоки с атрибутом data-addons-block прячутся. */
+function renderAddons(){
+  const dict = I18N[lang];
+  const addons = CONFIG.addons || [];
+  $$("[data-addons-block]").forEach(el => { el.hidden = !addons.length; });
+
+  $$('[data-addons="names"]').forEach(list => {
+    list.textContent = "";
+    addons.forEach(a => {
+      const li = document.createElement("li");
+      li.textContent = addonText(a, "name", lang);
+      list.appendChild(li);
+    });
+  });
+
+  $$('[data-addons="cards"]').forEach(list => {
+    list.textContent = "";
+    addons.forEach(a => {
+      const li = document.createElement("li");
+      li.className = "addon";
+      const parts = [
+        ["h4", "addon-name",        addonText(a, "name", lang)],
+        ["p",  "addon-desc",        addonText(a, "desc", lang)],
+        ["p",  "addon-monthly num", tpl(dict["addons.monthly"], { price: money(a.monthly) })],
+        ["p",  "addon-setup",       tpl(dict["addons.setup"],   { price: money(a.setup) })]
+      ];
+      parts.forEach(([tag, cls, text]) => {
+        const el = document.createElement(tag);
+        el.className = cls;
+        el.textContent = text;
+        li.appendChild(el);
+      });
+      list.appendChild(li);
+    });
+  });
 }
 
 /* Ссылки на прайс-лист ведут на версию на текущем языке */
@@ -497,6 +523,7 @@ function applyLang(code){
 
   renderClaims();
   renderTemplates();
+  renderAddons();
   renderPriceLinks();
   recalc(true);
   renderPrices(true);

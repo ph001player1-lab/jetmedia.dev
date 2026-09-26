@@ -16,7 +16,7 @@ const PRICE_I18N = {
     kicker: "Прайс-лист",
     date: "Цены действуют с {date}",
     h1: "Цифровой официант для ресторанов",
-    lead: "Планшет на каждом столе: меню на нескольких языках, заказ и оплата со стола, вызов официанта, AI-рекомендации блюд и напитков. Помогает поднять средний чек и разгрузить персонал.",
+    lead: "Планшет на каждом столе: меню с фото на языке гостя, рекомендации шефа и акции, вызов официанта.",
 
     monthlyH: "Ежемесячная оплата", monthlyUnit: "฿ в месяц, с НДС {vat}%",
     stdSub: "с рекламой JET MEDIA, без рекламы конкурентов",
@@ -27,39 +27,31 @@ const PRICE_I18N = {
     device: "Аренда устройства", deviceNote: "за каждое, 1 на столик",
     formula: "Стоимость в месяц = софт и поддержка + аренда устройства × число столиков",
 
-    examplesH: "Примеры расчёта", examplesUnit: "฿ в месяц по сезонам и за год",
+    examplesH: "Примеры расчёта", examplesUnit: "฿ в месяц по сезонам и за год: {low} мес. низкого сезона + {high} мес. высокого",
     tables: "Столиков",
     perLow: "Низкий сезон", perHigh: "Высокий сезон", perYear: "За год",
-    yearNote: "За год = {low} мес. низкого сезона + {high} мес. высокого",
 
-    includedH: "Что входит: софт, поддержка и устройства",
+    includedH: "Базовый пакет — входит в ежемесячную оплату",
     included: [
       "Устройство на каждый стол с зарядкой для телефона",
       "Интерактивное меню с фото и описанием блюд",
       "Меню на нескольких языках",
-      "Заказ и дозаказ со стола",
-      "AI-рекомендации блюд, напитков и десертов",
       "Рекомендации шеф-повара, акции и сезонные новинки",
       "Вызов официанта и запрос счёта",
-      "Оплата со стола картой и QR",
-      "Сбор отзывов и программа лояльности",
-      "Любимые блюда гостя и приглашения на акции",
-      "Аналитика заказов и предпочтений гостей",
       "Обновления и техническая поддержка"
     ],
 
-    servicesH: "Разово и дополнительно",
-    setup: "Подключение и настройка",
-    setupNote: "Разово, при подписании договора: установка устройств, загрузка меню, обучение персонала.",
-    payment: "Онлайн-оплата через JET MEDIA",
-    paymentNote: "От суммы платежа. Комиссия банка или платёжного провайдера — отдельно, по его тарифу.",
+    addonsH: "Дополнительные модули", addonsUnit: "к любому тарифу, ฿ с НДС {vat}%",
+    addonsCol: "Модуль", addonsSetup: "Настройка", addonsMonthly: "В месяц",
+    addonsNote: "Настройка — разово, при подключении модуля: сразу или позже. Абонплата модуля прибавляется к ежемесячной оплате и не зависит от сезона и тарифа. Модулям нужно дополнительное время на настройку — срок зависит от модуля и вашей кассы.",
 
-    termsH: "Условия",
+    setupTerm: "Подключение базового пакета — {setup} разово при подписании договора: установка, меню, обучение.",
+
+    termsH: "Подключение и условия",
     terms: [
       "Сезоны: высокий — ноябрь–март ({high} мес.), низкий — апрель–октябрь ({low} мес.).",
       "Устройства — в аренде, по одному на столик. Гарантийная замена — за счёт JET MEDIA.",
-      "Договор — от {minMonths} мес., в первые {cancelMonths} мес. можно отказаться. Оплата ежемесячно.",
-      "Цены в тайских батах, включая НДС {vat}%."
+      "Договор — от {minMonths} мес., в первые {cancelMonths} мес. можно отказаться. Оплата ежемесячно, цены в батах с НДС {vat}%."
     ],
 
     qr: "Расчёт для вашего ресторана и заявка — на сайте",
@@ -72,7 +64,7 @@ const PRICE_I18N = {
     kicker: "Price list",
     date: "Prices valid from {date}",
     h1: "A digital waiter for restaurants",
-    lead: "A tablet on every table: a menu in several languages, ordering and payment from the table, a waiter call button, AI recommendations for dishes and drinks. Helps raise the average check and take load off the staff.",
+    lead: "A tablet on every table: a photo menu in the guest's language, chef's picks and specials, a waiter call button.",
 
     monthlyH: "Monthly fees", monthlyUnit: "฿ per month, incl. {vat}% VAT",
     stdSub: "with JET MEDIA ads, never competitors' ads",
@@ -83,39 +75,31 @@ const PRICE_I18N = {
     device: "Device rental", deviceNote: "each one, 1 per table",
     formula: "Monthly price = software & support + device rental × number of tables",
 
-    examplesH: "Examples", examplesUnit: "฿ per month by season, and per year",
+    examplesH: "Examples", examplesUnit: "฿ per month by season, and per year: {low} low-season + {high} high-season months",
     tables: "Tables",
     perLow: "Low season", perHigh: "High season", perYear: "Per year",
-    yearNote: "A year = {low} low-season months + {high} high-season months",
 
-    includedH: "Included: software, support and devices",
+    includedH: "Base package — included in the monthly fee",
     included: [
       "A device on every table with phone charging",
       "Interactive menu with photos and dish descriptions",
       "Menu in several languages",
-      "Ordering and re-ordering from the table",
-      "AI recommendations for dishes, drinks and desserts",
       "Chef's picks, specials and seasonal dishes",
-      "Call a waiter and request the bill",
-      "Pay at the table by card or QR",
-      "Guest reviews and loyalty programme",
-      "Guests' favourite dishes and promo invitations",
-      "Analytics of orders and guest preferences",
+      "Call a waiter and ask for the bill",
       "Updates and technical support"
     ],
 
-    servicesH: "One-time and optional",
-    setup: "Setup",
-    setupNote: "One-time, paid at contract signing: device installation, menu upload, staff training.",
-    payment: "Online payments via JET MEDIA",
-    paymentNote: "Of the payment amount. The bank's or payment provider's fee is charged separately at its own rate.",
+    addonsH: "Add-on modules", addonsUnit: "for either plan, ฿ incl. {vat}% VAT",
+    addonsCol: "Module", addonsSetup: "Setup", addonsMonthly: "Per month",
+    addonsNote: "Setup is one-time, when you add a module — at the start or later. A module's monthly fee is added to the monthly bill and does not depend on the season or plan. Modules take extra time to set up, depending on the module and your POS.",
 
-    termsH: "Terms",
+    setupTerm: "Base package setup — {setup} one-time, at contract signing: installation, menu upload, staff training.",
+
+    termsH: "Setup and terms",
     terms: [
       "Seasons: high is November–March ({high} months), low is April–October ({low} months).",
       "Devices are rented, one per table. Warranty replacement is at JET MEDIA's expense.",
-      "Contract from {minMonths} months; you can cancel within the first {cancelMonths} months. Monthly billing.",
-      "Prices are in Thai baht and include {vat}% VAT."
+      "Contract from {minMonths} months; you can cancel within the first {cancelMonths} months. Monthly billing; prices in Thai baht incl. {vat}% VAT."
     ],
 
     qr: "Calculate your restaurant and send a request on our website",
@@ -128,7 +112,7 @@ const PRICE_I18N = {
     kicker: "รายการราคา",
     date: "ราคามีผลตั้งแต่ {date}",
     h1: "พนักงานเสิร์ฟดิจิทัลสำหรับร้านอาหาร",
-    lead: "แท็บเล็ตบนทุกโต๊ะ: เมนูหลายภาษา สั่งอาหารและชำระเงินจากโต๊ะ ปุ่มเรียกพนักงาน และ AI แนะนำอาหารและเครื่องดื่ม ช่วยเพิ่มยอดบิลเฉลี่ยและลดภาระงานของพนักงาน",
+    lead: "แท็บเล็ตบนทุกโต๊ะ: เมนูพร้อมรูปภาพในภาษาของลูกค้า เมนูแนะนำจากเชฟและโปรโมชัน ปุ่มเรียกพนักงาน",
 
     monthlyH: "ค่าบริการรายเดือน", monthlyUnit: "฿ ต่อเดือน รวม VAT {vat}%",
     stdSub: "มีโฆษณา JET MEDIA ไม่มีโฆษณาร้านคู่แข่ง",
@@ -139,39 +123,31 @@ const PRICE_I18N = {
     device: "ค่าเช่าอุปกรณ์", deviceNote: "ต่อเครื่อง 1 เครื่องต่อโต๊ะ",
     formula: "ค่าบริการต่อเดือน = ซอฟต์แวร์และการสนับสนุน + ค่าเช่าอุปกรณ์ × จำนวนโต๊ะ",
 
-    examplesH: "ตัวอย่างการคำนวณ", examplesUnit: "฿ ต่อเดือนตามฤดูกาล และต่อปี",
+    examplesH: "ตัวอย่างการคำนวณ", examplesUnit: "฿ ต่อเดือนตามฤดูกาล และต่อปี: โลว์ซีซัน {low} เดือน + ไฮซีซัน {high} เดือน",
     tables: "จำนวนโต๊ะ",
     perLow: "โลว์ซีซัน", perHigh: "ไฮซีซัน", perYear: "ต่อปี",
-    yearNote: "หนึ่งปี = โลว์ซีซัน {low} เดือน + ไฮซีซัน {high} เดือน",
 
-    includedH: "สิ่งที่รวมอยู่: ซอฟต์แวร์ การสนับสนุน และอุปกรณ์",
+    includedH: "แพ็กเกจพื้นฐาน — รวมอยู่ในค่าบริการรายเดือน",
     included: [
       "อุปกรณ์บนทุกโต๊ะ พร้อมที่ชาร์จโทรศัพท์",
       "เมนูอินเทอร์แอกทีฟพร้อมรูปภาพและคำอธิบายอาหาร",
       "เมนูหลายภาษา",
-      "สั่งอาหารและสั่งเพิ่มจากโต๊ะ",
-      "AI แนะนำอาหาร เครื่องดื่ม และของหวาน",
       "เมนูแนะนำจากเชฟ โปรโมชัน และเมนูตามฤดูกาล",
-      "เรียกพนักงานและขอใบเสร็จ",
-      "ชำระเงินที่โต๊ะด้วยบัตรหรือ QR",
-      "รีวิวจากลูกค้าและโปรแกรมสะสมคะแนน",
-      "เมนูโปรดของลูกค้าและคำเชิญร่วมโปรโมชัน",
-      "วิเคราะห์ออร์เดอร์และความชอบของลูกค้า",
+      "เรียกพนักงานและขอเช็กบิล",
       "อัปเดตและการสนับสนุนทางเทคนิค"
     ],
 
-    servicesH: "ค่าบริการครั้งเดียวและบริการเสริม",
-    setup: "ติดตั้งและตั้งค่า",
-    setupNote: "ครั้งเดียว ชำระเมื่อเซ็นสัญญา: ติดตั้งอุปกรณ์ อัปโหลดเมนู อบรมพนักงาน",
-    payment: "ชำระเงินออนไลน์ผ่าน JET MEDIA",
-    paymentNote: "ของยอดชำระ ค่าธรรมเนียมของธนาคารหรือผู้ให้บริการชำระเงินคิดแยกตามอัตราของผู้ให้บริการ",
+    addonsH: "โมดูลเสริม", addonsUnit: "เพิ่มได้กับทุกแพ็กเกจ ฿ รวม VAT {vat}%",
+    addonsCol: "โมดูล", addonsSetup: "ค่าตั้งค่า", addonsMonthly: "ต่อเดือน",
+    addonsNote: "ค่าตั้งค่าชำระครั้งเดียวเมื่อเพิ่มโมดูล จะเพิ่มตั้งแต่เริ่มหรือภายหลังก็ได้ ค่าบริการรายเดือนของโมดูลบวกเพิ่มในค่าบริการรายเดือน และไม่ขึ้นกับฤดูกาลหรือแพ็กเกจ การตั้งค่าโมดูลต้องใช้เวลาเพิ่ม ขึ้นกับโมดูลและระบบ POS ของร้าน",
 
-    termsH: "เงื่อนไข",
+    setupTerm: "ติดตั้งแพ็กเกจพื้นฐาน {setup} ครั้งเดียว ชำระเมื่อเซ็นสัญญา: ติดตั้ง อัปโหลดเมนู อบรมพนักงาน",
+
+    termsH: "การติดตั้งและเงื่อนไข",
     terms: [
       "ฤดูกาล: ไฮซีซัน พฤศจิกายน–มีนาคม ({high} เดือน) โลว์ซีซัน เมษายน–ตุลาคม ({low} เดือน)",
       "อุปกรณ์เป็นแบบเช่า หนึ่งเครื่องต่อโต๊ะ การเปลี่ยนในระยะรับประกัน JET MEDIA รับผิดชอบค่าใช้จ่าย",
-      "สัญญาขั้นต่ำ {minMonths} เดือน ยกเลิกได้ภายใน {cancelMonths} เดือนแรก ชำระรายเดือน",
-      "ราคาเป็นเงินบาท รวมภาษีมูลค่าเพิ่ม {vat}% แล้ว"
+      "สัญญาขั้นต่ำ {minMonths} เดือน ยกเลิกได้ภายใน {cancelMonths} เดือนแรก ชำระรายเดือน ราคาเป็นเงินบาท รวม VAT {vat}% แล้ว"
     ],
 
     qr: "คำนวณสำหรับร้านของคุณและส่งคำขอได้บนเว็บไซต์",
@@ -250,7 +226,6 @@ function render(){
     });
     $("#examplesBody").appendChild(tr);
   });
-  $("#yearNote").textContent = tpl(d.yearNote, vars);
 
   // Списки
   const fill = (sel, items) => {
@@ -264,8 +239,36 @@ function render(){
   fill("#included", d.included);
   fill("#terms", d.terms);
 
-  $("#setupFee").textContent = money(CONFIG.setupFee);
-  $("#paymentFee").textContent = new Intl.NumberFormat(LOCALES[lang], { maximumFractionDigits: 1 }).format(CONFIG.paymentFee) + "%";
+  // Первая строка условий — подключение, сумма выделена
+  const setupLi = document.createElement("li");
+  setupLi.className = "terms-setup";
+  const [before, after] = tpl(d.setupTerm, vars).split("{setup}");
+  const fee = document.createElement("b");
+  fee.className = "num";
+  fee.textContent = money(CONFIG.setupFee);
+  setupLi.append(before, fee, after || "");
+  $("#terms").prepend(setupLi);
+
+  // Дополнительные модули: название и описание, настройка разово, абонплата в месяц
+  const addons = CONFIG.addons || [];
+  $("#addonsBlock").hidden = !addons.length;
+  $("#addonsBody").innerHTML = "";
+  addons.forEach(a => {
+    const tr = document.createElement("tr");
+    const name = document.createElement("th");
+    name.scope = "row";
+    name.textContent = addonText(a, "name", lang);
+    const desc = document.createElement("small");
+    desc.textContent = addonText(a, "desc", lang);
+    name.appendChild(desc);
+    const setup = document.createElement("td");
+    setup.textContent = num(a.setup);
+    const monthly = document.createElement("td");
+    monthly.textContent = "+" + num(a.monthly);
+    tr.append(name, setup, monthly);
+    $("#addonsBody").appendChild(tr);
+  });
+
 
   // Подвал: сайт и контакты, пустые контакты не выводятся
   $("#footSite").textContent = CONFIG.priceList.site;

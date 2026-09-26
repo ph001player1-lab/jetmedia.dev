@@ -490,7 +490,7 @@ input[type=range]::-moz-range-thumb{
   margin-bottom:16px;
 }
 .ops-card h3{ margin-bottom:10px; }
-.ops-card p{ font-size:.9rem; color:var(--muted); }
+.ops-card p:not(.ops-k){ font-size:.9rem; color:var(--muted); }
 
 .caps{
   margin-top:16px; padding:30px 26px;
@@ -513,6 +513,20 @@ input[type=range]::-moz-range-thumb{
   border-left:1.6px solid var(--electric); border-bottom:1.6px solid var(--electric);
   transform:rotate(-45deg);
 }
+/* Две группы: базовый пакет (галочки) и модули за доплату (плюсы) */
+.caps-group + .caps-group{ margin-top:26px; padding-top:26px; border-top:1px solid var(--line-soft); }
+.caps-extra .caps-list li::before{
+  content:"+"; top:0; width:auto; height:auto; border:0; transform:none;
+  font-family:var(--display); font-weight:800; font-size:1rem; line-height:1.35; color:var(--blue);
+}
+.caps-link{
+  display:inline-block; margin-top:18px;
+  font-size:.86rem; color:var(--electric);
+  border-bottom:1px solid rgba(70,199,255,.35);
+  transition:border-color .2s var(--ease);
+}
+.caps-link::after{ content:" →"; }
+.caps-link:hover{ border-color:var(--electric); }
 
 /* ---------------- 12. Тарифы ---------------- */
 .plans{ display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:stretch; }
@@ -573,6 +587,26 @@ input[type=range]::-moz-range-thumb{
   transform:rotate(-45deg);
 }
 .plan-cta{ margin-top:auto; width:100%; }
+
+/* Дополнительные модули: цена в месяц и цена настройки у каждого */
+.addons{
+  margin-top:18px; padding:28px 26px;
+  border:1px solid var(--line); border-radius:var(--r-l);
+  background:rgba(255,255,255,.02);
+}
+.addons-head{ display:grid; gap:8px; max-width:780px; margin-bottom:22px; }
+.addons-title{ font-size:1.2rem; }
+.addons-sub{ font-size:.88rem; color:var(--muted); line-height:1.6; }
+.addons-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px; }
+.addon{
+  display:flex; flex-direction:column; gap:6px;
+  padding:18px 18px 16px; border-radius:var(--r-m);
+  border:1px solid var(--line-soft); background:rgba(24,123,255,.05);
+}
+.addon-name{ font-family:var(--display); font-size:1rem; font-weight:700; letter-spacing:-.01em; margin:0; }
+.addon-desc{ font-size:.84rem; color:var(--muted); line-height:1.5; }
+.addon-monthly{ margin-top:auto; padding-top:10px; font-size:1.08rem; font-weight:700; color:var(--electric); }
+.addon-setup{ font-size:.8rem; color:var(--muted); }
 
 /* Под тарифами: разовые услуги и прайс-лист (открыть / скачать PDF) */
 .plans-note{
@@ -672,6 +706,7 @@ input[type=range]::-moz-range-thumb{
   .hero-media{ margin-top:12px; }
   .calc-grid{ grid-template-columns:1fr; }
   .calc-intro{ max-width:640px; position:static; }
+  .addons-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 860px){
@@ -733,6 +768,8 @@ input[type=range]::-moz-range-thumb{
 
 @media (max-width: 520px){
   .calc-result{ grid-template-columns:1fr; }
+  .addons{ padding:22px 16px; }
+  .addons-grid{ grid-template-columns:1fr; }
   .plans-actions, .plans-actions .btn{ width:100%; }
   .hero-cta .btn{ width:100%; }
   .hero-trust{ gap:14px 24px; }

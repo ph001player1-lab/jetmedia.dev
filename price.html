@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#080B17">
 <title>JET MEDIA — прайс-лист</title>
-<meta name="description" content="Прайс-лист JET MEDIA: цифровой официант для ресторанов. Софт и поддержка за ресторан и аренда каждого устройства, цены по сезонам, с НДС.">
+<meta name="description" content="Прайс-лист JET MEDIA: цифровой официант для ресторанов. Софт и поддержка за ресторан и аренда каждого устройства, цены по сезонам, дополнительные модули, с НДС.">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -52,7 +52,7 @@
 
   <section class="sheet-intro">
     <h1 data-t="h1">Цифровой официант для ресторанов</h1>
-    <p data-t="lead">Планшет на каждом столе: меню на нескольких языках, заказ и оплата со стола, вызов официанта, AI-рекомендации блюд и напитков.</p>
+    <p data-t="lead">Планшет на каждом столе: меню с фото на языке гостя, рекомендации шефа и акции, вызов официанта.</p>
   </section>
 
   <!-- Ежемесячная оплата: софт и поддержка + аренда каждого устройства, по сезонам и тарифам -->
@@ -61,7 +61,7 @@
     <table class="tariffs">
       <thead>
         <tr>
-          <th rowspan="2" class="t-corner"></th>
+          <th rowspan="2" class="t-corner"><span class="corner-formula" data-t="formula">Стоимость в месяц = софт и поддержка + аренда устройства × число столиков</span></th>
           <th colspan="2" class="t-std">Standard <small data-t="stdSub">с рекламой JET MEDIA, без рекламы конкурентов</small></th>
           <th colspan="2" class="t-prm">Premium <small data-t="prmSub">без сторонней рекламы</small></th>
         </tr>
@@ -89,7 +89,6 @@
         </tr>
       </tbody>
     </table>
-    <p class="formula" data-t="formula">Стоимость в месяц = софт и поддержка + аренда устройства × число столиков</p>
   </section>
 
   <!-- Примеры: число столиков — CONFIG.priceList.examples -->
@@ -113,36 +112,34 @@
       </thead>
       <tbody id="examplesBody"></tbody>
     </table>
-    <p class="formula" id="yearNote"></p>
   </section>
 
   <section class="block">
-    <h2 data-t="includedH">Что входит</h2>
+    <h2 data-t="includedH">Базовый пакет — входит в ежемесячную оплату</h2>
     <ul class="checks" id="included"></ul>
   </section>
 
-  <div class="cols">
-    <section class="block">
-      <h2 data-t="servicesH">Разово и дополнительно</h2>
-        <dl class="services">
-          <div>
-            <dt data-t="setup">Подключение и настройка</dt>
-            <dd><b class="num" id="setupFee"></b></dd>
-            <dd class="services-note" data-t="setupNote">Разово, при подписании договора: установка устройств, загрузка меню, обучение персонала.</dd>
-          </div>
-          <div>
-            <dt data-t="payment">Онлайн-оплата через JET MEDIA</dt>
-            <dd><b class="num" id="paymentFee"></b></dd>
-            <dd class="services-note" data-t="paymentNote">От суммы платежа. Комиссия банка или платёжного провайдера — отдельно, по его тарифу.</dd>
-          </div>
-        </dl>
-      </section>
+  <!-- Дополнительные модули: цены и тексты — CONFIG.addons (config.js) -->
+  <section class="block" id="addonsBlock">
+    <h2><span data-t="addonsH">Дополнительные модули</span> <small data-t="addonsUnit">к любому тарифу, ฿ с НДС</small></h2>
+    <table class="addons">
+      <thead>
+        <tr>
+          <th data-t="addonsCol">Модуль</th>
+          <th data-t="addonsSetup">Настройка</th>
+          <th data-t="addonsMonthly">В месяц</th>
+        </tr>
+      </thead>
+      <tbody id="addonsBody"></tbody>
+    </table>
+    <p class="formula" data-t="addonsNote"></p>
+  </section>
 
-      <section class="block">
-        <h2 data-t="termsH">Условия</h2>
-        <ul class="terms" id="terms"></ul>
-      </section>
-  </div>
+  <!-- Подключение (CONFIG.setupFee) — первой строкой, дальше условия договора -->
+  <section class="block">
+    <h2 data-t="termsH">Подключение и условия</h2>
+    <ul class="terms" id="terms"></ul>
+  </section>
 
   <footer class="sheet-foot">
     <div class="foot-info">
