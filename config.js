@@ -56,8 +56,8 @@ const CONFIG = {
 
      Сезоны Пхукета: высокий — ноябрь–март, низкий — апрель–октябрь. */
   pricing: {
-    low:  { software: 1900, device: 240, months: 7 },
-    high: { software: 5800, device: 590, months: 5 }
+    low:  { software: 1200, device: 240, months: 7 },
+    high: { software: 3900, device: 590, months: 5 }
   },
   premiumMultiplier: 2,
 

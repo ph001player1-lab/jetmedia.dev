@@ -393,7 +393,7 @@ const pctNum = v => pf.format(Math.round(v * 10) / 10);   // 6 → «6», 12.5 �
 /* Строка перевода с подстановками: "подключение — {setup}" + { setup: "4 900 ฿" } */
 const tpl = (str, vars) => String(str || "").replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
 
-/* «1 900 ฿ + 10 × 240 ฿ = 4 300 ฿» — стоимость видна вместе с формулой */
+/* «1 200 ฿ + 10 × 240 ฿ = 3 600 ฿» — стоимость видна вместе с формулой */
 const formula = (platform, devices, price) =>
   money(platform) + " + " + plainN(devices) + " × " + money(price) + " = " + money(platform + devices * price);
 
@@ -653,7 +653,7 @@ function renderPrices(instant){
   renderPlanExamples(+sTables.value);
 }
 
-/* «Для вашего зала: 1 900 ฿ + 10 × 240 ฿ = 4 300 ฿» —
+/* «Для вашего зала: 1 200 ฿ + 10 × 240 ฿ = 3 600 ฿» —
    число столиков берётся из калькулятора, сезон — из переключателя */
 function renderPlanExamples(tables){
   $("#exampleStd").textContent = formula(softwareFee(season, "standard"), tables, devicePrice(season, "standard"));
