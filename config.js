@@ -137,7 +137,7 @@ const CONFIG = {
                 перегенерировать (см. README).                        */
   priceList: {
     date: "2026-10-01",
-    examples: [5, 10, 20],
+    examples: [5, 10, 20, 30, 40],
     site: "jetmedia.dev",
     contacts: {
       phone: "",

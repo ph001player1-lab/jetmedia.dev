@@ -76,14 +76,24 @@
       <a href="#ops" data-i18n="nav.ops">Возможности</a>
       <a href="#pricing" data-i18n="nav.pricing">Тарифы</a>
       <a href="#faq" data-i18n="nav.faq">Вопросы</a>
-    </nav>
-
-    <div class="head-actions">
-      <div class="lang" role="group" aria-label="Language">
+      <!-- На телефоне языки переезжают сюда, в меню: в шапке остаётся место для кнопки прайса -->
+      <div class="lang nav-lang" role="group" aria-label="Language">
         <button type="button" class="lang-btn is-active" data-set-lang="ru">RU</button>
         <button type="button" class="lang-btn" data-set-lang="en">EN</button>
         <button type="button" class="lang-btn" data-set-lang="th">TH</button>
       </div>
+    </nav>
+
+    <div class="head-actions">
+      <div class="lang head-lang" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-set-lang="ru">RU</button>
+        <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-set-lang="th">TH</button>
+      </div>
+      <!-- Прайс-лист — на любом экране: на телефоне подпись короче -->
+      <a class="btn btn-primary head-price" href="price.html" data-price-page>
+        <svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 12.5h6M10 16.5h6"/></svg><span class="lbl-full" data-i18n="price.open">Посмотреть прайс</span><span class="lbl-short" data-i18n="price.openShort">Прайс</span>
+      </a>
       <a class="btn btn-ghost head-cta" href="#request" data-request-type="demo" data-i18n="nav.cta">Демонстрация</a>
       <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false">
         <span></span><span></span>
@@ -288,10 +298,12 @@
         </div>
       </div>
 
-      <p class="calc-note">
-        <span data-tpl="calc.note">Разово при подписании договора — подключение 5 000 ฿. Дополнительные модули в расчёт не входят. Цены с НДС 7%.</span>
-        <a href="price.html" data-price-page data-i18n="price.open">Открыть прайс-лист</a>
-      </p>
+      <div class="calc-note">
+        <p data-tpl="calc.note">Разово при подписании договора — подключение 5 000 ฿. Дополнительные модули в расчёт не входят. Цены с НДС 7%.</p>
+        <a class="btn btn-primary btn-price" href="price.html" data-price-page>
+          <svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 12.5h6M10 16.5h6"/></svg><span data-i18n="price.open">Посмотреть прайс</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -471,8 +483,10 @@
         <p data-tpl="price.noteTerms">Договор — от 12 мес., в первые 2 мес. можно отказаться. Все цены с НДС 7%.</p>
       </div>
       <div class="plans-actions">
-        <a class="btn btn-line" href="price.html" data-price-page data-i18n="price.open">Открыть прайс-лист</a>
-        <a class="btn btn-primary" href="price-ru.pdf" download="JET-MEDIA-price-RU.pdf" data-price-pdf data-i18n="price.pdf">Скачать PDF</a>
+        <a class="btn btn-primary btn-price" href="price.html" data-price-page>
+          <svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 12.5h6M10 16.5h6"/></svg><span data-i18n="price.open">Посмотреть прайс</span>
+        </a>
+        <a class="btn btn-line" href="price-ru.pdf" download="JET-MEDIA-price-RU.pdf" data-price-pdf data-i18n="price.pdf">Скачать PDF</a>
       </div>
     </div>
   </div>
@@ -571,6 +585,10 @@
       <a href="#pricing" data-i18n="nav.pricing">Тарифы</a>
     </nav>
     <div class="foot-contacts">
+      <a class="btn btn-primary btn-price foot-price" href="price.html" data-price-page>
+        <svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 12.5h6M10 16.5h6"/></svg><span data-i18n="price.open">Посмотреть прайс</span>
+      </a>
+      <a class="foot-pdf" href="price-ru.pdf" download="JET-MEDIA-price-RU.pdf" data-price-pdf data-i18n="price.pdf">Скачать PDF</a>
       <p class="foot-rights">© <span id="year">2026</span> JET MEDIA</p>
     </div>
   </div>

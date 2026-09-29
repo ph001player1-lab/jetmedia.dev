@@ -93,7 +93,7 @@ button{ font:inherit; }
 .sheet-head{
   position:relative; overflow:hidden;
   display:flex; align-items:center; justify-content:space-between; gap:20px;
-  padding:6.5mm 14mm 5.5mm;
+  padding:5mm 14mm 4.5mm;
   background:
     radial-gradient(55% 120% at 72% 0%, rgba(24,123,255,.38), transparent 70%),
     radial-gradient(40% 90% at 100% 100%, rgba(70,199,255,.18), transparent 70%),
@@ -101,20 +101,20 @@ button{ font:inherit; }
   color:#EAF1FF;
   -webkit-print-color-adjust:exact; print-color-adjust:exact;
 }
-.sheet-logo{ position:relative; height:10.5mm; width:auto; }
+.sheet-logo{ position:relative; height:9.5mm; width:auto; }
 .sheet-title{ position:relative; text-align:right; }
 .sheet-kicker{
   font-family:var(--display); font-weight:800; font-size:15pt; letter-spacing:-.02em;
 }
 .sheet-date{ margin-top:1px; font-size:8.5pt; color:#9FB2D8; }
 
-.sheet-intro{ padding:5mm 14mm 0; }
+.sheet-intro{ padding:4.5mm 14mm 0; }
 .sheet-intro h1{
   font-family:var(--display); font-weight:800; font-size:14.5pt; letter-spacing:-.03em; line-height:1.2;
 }
 .sheet-intro p{ margin-top:1.5mm; max-width:172mm; font-size:9pt; color:var(--ink-2); }
 
-.block{ padding:3.3mm 14mm 0; }
+.block{ padding:2.9mm 14mm 0; }
 .block h2{
   display:flex; align-items:baseline; gap:8px; margin-bottom:1.9mm;
   font-family:var(--display); font-weight:800; font-size:10.5pt; letter-spacing:-.01em;
@@ -133,7 +133,7 @@ thead th small, tbody th small{
   display:block; margin-top:1px;
   font-family:var(--body); font-weight:500; font-size:7.5pt; color:var(--ink-2);
 }
-thead tr:first-child th{ font-size:10pt; padding-top:2.2mm; padding-bottom:1.6mm; }
+thead tr:first-child th{ font-size:10pt; padding-top:1.9mm; padding-bottom:1.4mm; }
 thead tr:first-child th:not(.t-corner){ border-radius:3mm 3mm 0 0; }
 .t-corner{ background:transparent; }
 /* Формула стоимости — в пустом углу таблицы тарифов */
@@ -148,7 +148,7 @@ thead tr:first-child th:not(.t-corner){ border-radius:3mm 3mm 0 0; }
   background:linear-gradient(100deg, var(--blue), var(--electric)) !important;
 }
 .t-prm small{ color:rgba(255,255,255,.85) !important; }
-.t-seasons th{ font-size:8.5pt; line-height:1.2; padding-top:1.3mm; padding-bottom:1.3mm; border-bottom:1px solid var(--rule); }
+.t-seasons th{ font-size:8.5pt; line-height:1.2; padding-top:1.1mm; padding-bottom:1.1mm; border-bottom:1px solid var(--rule); }
 /* Колонки Premium — лёгкая голубая подложка, чтобы тарифы читались раздельно */
 .tariffs tbody td:nth-child(n+4),
 .examples tbody td:nth-child(n+5){ background:rgba(24,123,255,.045); }
@@ -161,11 +161,11 @@ tbody tr + tr > *{ border-top:1px solid var(--rule); }
 tbody tr:last-child > *{ border-bottom:1px solid var(--rule); }
 
 .tariffs tbody td{ font-size:12.5pt; letter-spacing:-.02em; }
-.tariffs tbody > tr > *{ padding-top:1.2mm; padding-bottom:1.2mm; }
+.tariffs tbody > tr > *{ padding-top:1mm; padding-bottom:1mm; }
 .examples th, .examples td{ padding-left:2mm; padding-right:2mm; }
-.examples tbody > tr > *{ padding-top:1.05mm; padding-bottom:1.05mm; }
-.examples tbody td{ font-size:9.5pt; }
-.examples tbody th{ font-size:9.5pt; text-align:center; }
+.examples tbody > tr > *{ padding-top:.75mm; padding-bottom:.75mm; }
+.examples tbody td{ font-size:9pt; }
+.examples tbody th{ font-size:9pt; text-align:center; }
 .examples thead th:first-child{ text-align:center; vertical-align:bottom; font-size:8.5pt; }
 .examples .t-year{ color:var(--blue); }
 
@@ -182,7 +182,7 @@ tbody tr:last-child > *{ border-bottom:1px solid var(--rule); }
 .addons tbody th small{ display:inline; margin-left:2mm; font-size:7.6pt; font-weight:400; color:var(--ink-2); }
 .addons tbody td{ width:1%; font-size:10pt; white-space:nowrap; }   /* цены — по ширине содержимого */
 .addons tbody td:last-child{ color:var(--blue); }
-.addons tbody > tr > *{ padding-top:1.1mm; padding-bottom:1.1mm; }
+.addons tbody > tr > *{ padding-top:.9mm; padding-bottom:.9mm; }
 
 /* ---------------- 6. Базовый пакет / подключение и условия ---------------- */
 /* Базовый пакет — две колонки на всю ширину листа */
@@ -210,7 +210,7 @@ tbody tr:last-child > *{ border-bottom:1px solid var(--rule); }
 .sheet-foot{
   margin-top:auto;
   display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
-  padding:3mm 14mm 4.5mm;
+  padding:2mm 14mm 4.5mm;
 }
 .foot-site{ font-family:var(--display); font-weight:800; font-size:13pt; color:var(--blue); }
 .foot-contacts{ margin-top:1mm; font-size:9pt; color:var(--ink); }
