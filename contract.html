@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080B17">
+<title>JET MEDIA — договор</title>
+<!-- Рабочий инструмент: в поиск не попадает -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Шрифты брендбука. crossorigin нужен, чтобы шрифты встроились в PDF договора -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="contract.css">
+</head>
+
+<body>
+
+<!-- ================================================================
+     ПАНЕЛЬ — только на экране
+     ================================================================ -->
+<nav class="bar" aria-label="Договор">
+  <a class="bar-back" href="index.html" data-ui="back">← На сайт</a>
+  <div class="bar-right">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-set-lang="ru">RU</button>
+      <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-set-lang="th">TH</button>
+    </div>
+    <button type="button" class="bar-btn" data-act="print" data-ui="print">Печать</button>
+    <button type="button" class="bar-btn bar-primary" data-act="pdf" data-ui="pdf">Скачать PDF</button>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <!-- ==============================================================
+       ФОРМА. Всё, что введено, сразу попадает в договор справа.
+       Цены, сроки и реквизиты JET MEDIA — из config.js.
+       ============================================================== -->
+  <form class="form" id="form" autocomplete="off" novalidate>
+    <h1 class="form-title" data-ui="heading">Договор с рестораном</h1>
+    <p class="form-lead" data-ui="lead">Заполните данные — договор обновляется сразу. Пустые поля останутся в договоре линиями, их можно заполнить от руки.</p>
+
+    <fieldset>
+      <legend data-ui="secContract">Договор</legend>
+      <div class="row2">
+        <label class="fld"><span data-ui="fNumber">Номер договора</span><input name="number" type="text"></label>
+        <label class="fld"><span data-ui="fDate">Дата договора</span><input name="date" type="date"></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend data-ui="secTariff">Тариф и оборудование</legend>
+      <div class="fld">
+        <span data-ui="fTier">Тариф</span>
+        <div class="choice" role="radiogroup">
+          <label><input type="radio" name="tier" value="standard"><span><b>Standard</b><small data-ui="tierStd">с рекламой сети JET MEDIA</small></span></label>
+          <label><input type="radio" name="tier" value="premium"><span><b>Premium</b><small data-ui="tierPrm">без сторонней рекламы</small></span></label>
+        </div>
+      </div>
+      <div class="fld">
+        <span data-ui="fTerm">Срок договора</span>
+        <div class="choice choice-terms" role="radiogroup" id="termChoice"></div>
+      </div>
+      <div class="row2">
+        <label class="fld"><span data-ui="fDevices">Устройств (столиков)</span><input name="devices" type="number" min="1" max="200" step="1" inputmode="numeric"></label>
+        <label class="fld"><span data-ui="fStart">Дата установки</span><input name="start" type="date"><small class="fld-note" data-ui="fStartNote">Можно оставить пустым</small></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend data-ui="secAddons">Дополнительные модули</legend>
+      <div class="addon-list" id="addonList"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend data-ui="secClient">Заказчик</legend>
+      <div class="choice choice-type" role="radiogroup">
+        <label><input type="radio" name="clientType" value="company"><span data-ui="tCompany">Компания</span></label>
+        <label><input type="radio" name="clientType" value="person"><span data-ui="tPerson">Частное лицо / ИП</span></label>
+      </div>
+
+      <div class="client-fields" data-client="company">
+        <label class="fld"><span data-ui="cName">Название компании</span><input name="cName" type="text"></label>
+        <div class="row2">
+          <label class="fld"><span data-ui="cReg">Регистрационный номер</span><input name="cReg" type="text" inputmode="numeric"></label>
+          <label class="fld"><span data-ui="cTax">Налоговый номер</span><input name="cTax" type="text" inputmode="numeric"><small class="fld-note" data-ui="cTaxNote">Если отличается от регистрационного</small></label>
+        </div>
+        <label class="fld"><span data-ui="cAddr">Юридический адрес</span><textarea name="cAddr" rows="2"></textarea></label>
+        <div class="row2">
+          <label class="fld"><span data-ui="cRep">Представитель (имя полностью)</span><input name="cRep" type="text"></label>
+          <label class="fld"><span data-ui="cPos">Должность</span><input name="cPos" type="text"></label>
+        </div>
+        <label class="fld"><span data-ui="cBasis">Действует на основании</span><input name="cBasis" type="text"></label>
+      </div>
+
+      <div class="client-fields" data-client="person" hidden>
+        <label class="fld"><span data-ui="pName">Имя полностью</span><input name="pName" type="text"></label>
+        <div class="row2">
+          <label class="fld"><span data-ui="pId">Паспорт или ID-карта, номер</span><input name="pId" type="text"></label>
+          <label class="fld"><span data-ui="pTax">Налоговый номер</span><input name="pTax" type="text" inputmode="numeric"><small class="fld-note" data-ui="pTaxNote">Если есть</small></label>
+        </div>
+        <label class="fld"><span data-ui="pAddr">Адрес</span><textarea name="pAddr" rows="2"></textarea></label>
+      </div>
+
+      <div class="row2">
+        <label class="fld"><span data-ui="phone">Телефон</span><input name="phone" type="tel"></label>
+        <label class="fld"><span data-ui="email">E-mail</span><input name="email" type="email"></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend data-ui="secVenue">Ресторан — где ставим устройства</legend>
+      <label class="fld"><span data-ui="vName">Название ресторана</span><input name="vName" type="text"></label>
+      <label class="fld"><span data-ui="vAddr">Адрес ресторана</span><textarea name="vAddr" rows="2"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend data-ui="secProvider">Исполнитель</legend>
+      <label class="fld"><span data-ui="fSigner">Подписывает от JET MEDIA</span><select name="signer" id="signerSel"></select></label>
+    </fieldset>
+
+    <!-- Итоги по выбранному тарифу и модулям -->
+    <section class="sum" id="sum" aria-live="polite"></section>
+    <p class="missing" id="missing" hidden></p>
+
+    <div class="form-actions">
+      <button type="button" class="btn btn-primary" data-act="pdf" data-ui="pdf">Скачать PDF</button>
+      <button type="button" class="btn btn-line" data-act="print" data-ui="print">Печать</button>
+    </div>
+    <p class="form-foot">
+      <span data-ui="draftNote">Черновик хранится только в этом браузере.</span>
+      <button type="button" class="btn-link" data-act="reset" data-ui="reset">Очистить форму</button>
+    </p>
+  </form>
+
+  <!-- ==============================================================
+       ДОГОВОР: листы A4. Их собирает contract.js из текста договора
+       на выбранном языке; в печать и PDF попадают только листы.
+       ============================================================== -->
+  <main class="preview" aria-label="Договор">
+    <div class="doc" id="doc"></div>
+  </main>
+</div>
+
+<!-- Индикатор сборки PDF -->
+<div class="busy" id="busy" hidden><p id="busyText">…</p></div>
+
+<script src="config.js" defer></script>
+<script src="contract.js" defer></script>
+</body>
+</html>

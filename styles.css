@@ -704,6 +704,7 @@ input[type=range]::-moz-range-thumb{
 .foot-contacts{ display:grid; gap:14px; justify-items:start; font-size:.88rem; color:var(--muted); }
 .foot-pdf{ color:var(--electric); border-bottom:1px solid rgba(70,199,255,.35); transition:border-color .2s var(--ease); }
 .foot-pdf:hover{ border-bottom-color:var(--electric); }
+.foot-contract{ margin-top:4px; }
 .foot-rights{ margin-top:8px; opacity:.7; font-size:.8rem; }
 
 /* ---------------- 16. Появление при прокрутке ---------------- */
@@ -812,7 +813,7 @@ input[type=range]::-moz-range-thumb{
 
 @media (max-width: 520px){
   .calc-result{ grid-template-columns:1fr; }
-  .calc-note .btn-price, .foot-price{ width:100%; }
+  .calc-note .btn-price, .foot-price, .foot-contract{ width:100%; }
   .addons{ padding:22px 16px; }
   .addons-grid{ grid-template-columns:1fr; }
   .plans-actions, .plans-actions .btn{ width:100%; }

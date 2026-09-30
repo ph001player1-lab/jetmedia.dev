@@ -136,7 +136,8 @@ const I18N = {
     "form.errNet": "Не удалось отправить. Попробуйте ещё раз через минуту.",
     "form.errConfig": "Форма пока не подключена к приёму заявок. Напишите нам напрямую.",
 
-    "foot.tag": "Цифровой официант, реклама и аналитика для ресторанов."
+    "foot.tag": "Цифровой официант, реклама и аналитика для ресторанов.",
+    "foot.contract": "Договор"
   },
 
   en: {
@@ -244,7 +245,8 @@ const I18N = {
     "form.errNet": "Sending failed. Please try again in a minute.",
     "form.errConfig": "The form is not connected yet. Please contact us directly.",
 
-    "foot.tag": "Digital waiter, advertising and analytics for restaurants."
+    "foot.tag": "Digital waiter, advertising and analytics for restaurants.",
+    "foot.contract": "Contract"
   },
 
   th: {
@@ -352,7 +354,8 @@ const I18N = {
     "form.errNet": "ส่งไม่สำเร็จ กรุณาลองใหม่อีกครั้งในอีกสักครู่",
     "form.errConfig": "แบบฟอร์มยังไม่ได้เชื่อมต่อ กรุณาติดต่อเราโดยตรง",
 
-    "foot.tag": "พนักงานเสิร์ฟดิจิทัล โฆษณา และการวิเคราะห์สำหรับร้านอาหาร"
+    "foot.tag": "พนักงานเสิร์ฟดิจิทัล โฆษณา และการวิเคราะห์สำหรับร้านอาหาร",
+    "foot.contract": "สัญญา"
   }
 };
 
@@ -465,9 +468,10 @@ function renderAddons(){
   });
 }
 
-/* Ссылки на прайс-лист ведут на версию на текущем языке */
+/* Ссылки на прайс-лист и договор ведут на версию на текущем языке */
 function renderPriceLinks(){
   $$("[data-price-page]").forEach(a => { a.href = "price.html?lang=" + lang; });
+  $$("[data-contract-page]").forEach(a => { a.href = "contract.html?lang=" + lang; });
   $$("[data-price-pdf]").forEach(a => {
     a.href = "price-" + lang + ".pdf";
     a.setAttribute("download", "JET-MEDIA-price-" + lang.toUpperCase() + ".pdf");
