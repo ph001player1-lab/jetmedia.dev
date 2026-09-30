@@ -70,7 +70,7 @@ const I18N = {
     "calc.devices": "Аренда устройств",
     "calc.totalMonth": "Расходы в месяц", "calc.totalYear": "Расходы за год",
     "calc.net": "Чистый результат",
-    "calc.note": "Разово при подписании договора — подключение {setup}. Дополнительные модули в расчёт не входят. Цены с НДС {vat}%.",
+    "calc.note": "Разово при подписании договора — подключение {setup}. Дополнительные модули в расчёт не входят.",
 
     "ops.eyebrow": "Что получает ресторан",
     "ops.title": "Не только продажи — вся операционка стола",
@@ -105,7 +105,7 @@ const I18N = {
     "price.p2": "Экран полностью под ваши акции и рекомендации",
     "price.ctaStd": "Заказать установку", "price.ctaPrm": "Заказать демонстрацию",
     "price.noteSetup": "Подключение базового пакета — {setup} при подписании договора: установка устройств, загрузка меню, обучение персонала.",
-    "price.noteTerms": "Договор — от {minMonths} мес., в первые {cancelMonths} мес. можно отказаться. Все цены с НДС {vat}%.",
+    "price.noteTerms": "Договор — от {minMonths} мес., в первые {cancelMonths} мес. можно отказаться.",
     "price.open": "Посмотреть прайс", "price.openShort": "Прайс", "price.pdf": "Скачать PDF",
     "addons.title": "Дополнительные модули",
     "addons.sub": "Не входят в базовый пакет. Подключаются к любому тарифу — сразу или позже: настройка оплачивается разово, абонплата модуля прибавляется к ежемесячной оплате. Каждому модулю нужно дополнительное время на настройку и связь с вашими системами.",
@@ -179,7 +179,7 @@ const I18N = {
     "calc.devices": "Device rental",
     "calc.totalMonth": "Costs per month", "calc.totalYear": "Costs per year",
     "calc.net": "Net result",
-    "calc.note": "One-time at contract signing: setup {setup}. Add-on modules are not included in this estimate. Prices include {vat}% VAT.",
+    "calc.note": "One-time at contract signing: setup {setup}. Add-on modules are not included in this estimate.",
 
     "ops.eyebrow": "What the restaurant gets",
     "ops.title": "Not just sales — the whole table operation",
@@ -214,7 +214,7 @@ const I18N = {
     "price.p2": "The whole screen for your own specials and recommendations",
     "price.ctaStd": "Request installation", "price.ctaPrm": "Book a demo",
     "price.noteSetup": "Base package setup — {setup} at contract signing: device installation, menu upload, staff training.",
-    "price.noteTerms": "Contract from {minMonths} months; you can cancel during the first {cancelMonths} months. All prices include {vat}% VAT.",
+    "price.noteTerms": "Contract from {minMonths} months; you can cancel during the first {cancelMonths} months.",
     "price.open": "View prices", "price.openShort": "Prices", "price.pdf": "Download PDF",
     "addons.title": "Add-on modules",
     "addons.sub": "Not part of the base package. Add them to either plan, now or later: setup is a one-time fee, and the module's monthly fee is added to your monthly bill. Each module needs extra time to set up and connect to your systems.",
@@ -288,7 +288,7 @@ const I18N = {
     "calc.devices": "ค่าเช่าอุปกรณ์",
     "calc.totalMonth": "ค่าใช้จ่ายต่อเดือน", "calc.totalYear": "ค่าใช้จ่ายต่อปี",
     "calc.net": "ผลลัพธ์สุทธิ",
-    "calc.note": "ครั้งเดียวเมื่อเซ็นสัญญา: ค่าติดตั้ง {setup} · ไม่รวมโมดูลเสริม · ราคารวม VAT {vat}%",
+    "calc.note": "ครั้งเดียวเมื่อเซ็นสัญญา: ค่าติดตั้ง {setup} · ไม่รวมโมดูลเสริม",
 
     "ops.eyebrow": "สิ่งที่ร้านได้รับ",
     "ops.title": "ไม่ใช่แค่ยอดขาย แต่คือการดำเนินงานทั้งโต๊ะ",
@@ -323,7 +323,7 @@ const I18N = {
     "price.p2": "หน้าจอทั้งหมดสำหรับโปรโมชันและเมนูแนะนำของร้านคุณ",
     "price.ctaStd": "ขอติดตั้ง", "price.ctaPrm": "ขอชมการสาธิต",
     "price.noteSetup": "ค่าติดตั้งแพ็กเกจพื้นฐาน {setup} ชำระเมื่อเซ็นสัญญา: ติดตั้งอุปกรณ์ อัปโหลดเมนู อบรมพนักงาน",
-    "price.noteTerms": "สัญญาขั้นต่ำ {minMonths} เดือน ยกเลิกได้ภายใน {cancelMonths} เดือนแรก ราคาทั้งหมดรวม VAT {vat}%",
+    "price.noteTerms": "สัญญาขั้นต่ำ {minMonths} เดือน ยกเลิกได้ภายใน {cancelMonths} เดือนแรก",
     "price.open": "ดูรายการราคา", "price.openShort": "ราคา", "price.pdf": "ดาวน์โหลด PDF",
     "addons.title": "โมดูลเสริม",
     "addons.sub": "ไม่รวมอยู่ในแพ็กเกจพื้นฐาน เพิ่มได้กับทุกแพ็กเกจ ทั้งตอนเริ่มใช้งานหรือภายหลัง: ค่าตั้งค่าชำระครั้งเดียว และค่าบริการรายเดือนของโมดูลบวกเพิ่มในค่าบริการรายเดือน แต่ละโมดูลต้องใช้เวลาเพิ่มในการตั้งค่าและเชื่อมต่อกับระบบของร้าน",
@@ -418,7 +418,6 @@ function renderClaims(){
 function renderTemplates(){
   const vars = {
     setup:        money(CONFIG.setupFee),
-    vat:          pctNum(CONFIG.vat),
     low:          plainN(CONFIG.pricing.low.months),
     high:         plainN(CONFIG.pricing.high.months),
     minMonths:    plainN(CONFIG.contract.minMonths),

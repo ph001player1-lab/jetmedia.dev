@@ -155,13 +155,13 @@ const TEXT = {
         "Исполнитель вправе отказаться от Договора, письменно уведомив Заказчика, если Заказчик задерживает оплату более чем на {terminateW} или нарушает правила обращения с Устройствами (раздел 5)."
       ]],
       ["Стоимость и порядок расчётов", [
-        "Цены Услуг, аренды Устройств и дополнительных модулей указаны в Спецификации (Приложение № 1) в тайских батах и включают НДС {vat}%.",
+        "Цены Услуг, аренды Устройств и дополнительных модулей указаны в Спецификации (Приложение № 1) в тайских батах.",
         "Ежемесячная плата состоит из платы за софт и поддержку, платы за аренду каждого Устройства и абонентской платы подключённых дополнительных модулей. Плата за софт и поддержку и за аренду Устройств зависит от сезона: высокий сезон — ноябрь–март, низкий сезон — апрель–октябрь.",
         "Плата за подключение базового пакета — {setupWords} — вносится при подписании Договора. Плата за настройку дополнительного модуля вносится при его подключении.",
         "Ежемесячная плата вносится авансом до {payDay}-го числа оплачиваемого месяца на основании счёта Исполнителя банковским переводом на счёт Исполнителя, указанный в реквизитах Договора или в счёте. За неполный первый месяц плата начисляется пропорционально числу дней с даты установки.",
         "Цены по Спецификации не меняются в течение срока, указанного в п. 2.1. При продлении Договора Исполнитель вправе изменить цены, письменно уведомив Заказчика не позднее чем за {noticeW} до окончания срока.",
         "При задержке оплаты более чем на {suspendW} Исполнитель вправе приостановить Услуги до погашения задолженности, предварительно уведомив Заказчика. Приостановка не освобождает Заказчика от внесения платы.",
-        "Исполнитель выставляет налоговые счета-фактуры (tax invoice) в соответствии с законодательством Таиланда."
+        "Исполнитель не зарегистрирован плательщиком НДС, поэтому НДС на цены по Договору не начисляется. Исполнитель выставляет счета и выдаёт квитанции об оплате. Если по законодательству Таиланда Заказчик обязан удержать налог у источника выплаты, он удерживает его из платежа и передаёт Исполнителю справку об удержании."
       ]],
       ["Установка и настройка", [
         "Исполнитель устанавливает Устройства, загружает меню и обучает персонал Заказчика в течение {launchDays} рабочих дней после подписания Договора, получения платы за подключение и материалов, указанных в п. 6.2.",
@@ -171,7 +171,7 @@ const TEXT = {
       ["Устройства", [
         "Устройства остаются собственностью Исполнителя и передаются Заказчику во временное пользование на срок Договора. Заказчик не вправе продавать Устройства, передавать их в залог или в пользование третьим лицам, вывозить из Ресторана, вскрывать и изменять их программное обеспечение.",
         "Заказчик обеспечивает сохранность Устройств, их зарядку, подключение к сети Wi-Fi Ресторана и бережное обращение с ними персонала и гостей.",
-        "Неисправность, возникшая не по вине Заказчика, устраняется Исполнителем бесплатно: Устройство ремонтируется или заменяется не позднее чем через {repairW} после обращения Заказчика.",
+        "Неисправность, возникшая не по вине Заказчика (гарантийный случай), устраняется Исполнителем бесплатно: Устройство ремонтируется или заменяется в срок, который зависит от характера неисправности, но не более {repairMaxW} с даты обращения Заказчика. Пока Устройство находится в ремонте или ожидает замены, плата за аренду этого Устройства не начисляется.",
         "При повреждении, утрате или хищении Устройства по вине Заказчика, его персонала или гостей Заказчик возмещает стоимость ремонта или стоимость Устройства {deviceValuePart}.",
         "Не позднее чем через {returnW} после прекращения Договора Заказчик обеспечивает Исполнителю доступ в Ресторан для демонтажа и возврата Устройств в исправном состоянии с учётом нормального износа."
       ]],
@@ -238,8 +238,8 @@ const TEXT = {
     spec: [
       "Ресторан: {vName}, {vAddr}. Количество Устройств: {devices}.",
       "Тариф: {tier} — {tierDesc}. Срок Договора: {termW} с даты установки Устройств{startPart}.",
-      "Ежемесячная плата, THB, с НДС {vat}%:",
-      "Разовые платежи, THB, с НДС {vat}%:",
+      "Ежемесячная плата, THB:",
+      "Разовые платежи, THB:",
       "Ориентировочная сумма ежемесячных платежей за год (7 месяцев низкого и 5 месяцев высокого сезона) — {yearMoney}, за весь срок Договора ({termW}) — {termMoney}. Разовые платежи в эти суммы не входят."
     ],
     tierDescStd: "с рекламой сети JET MEDIA, без рекламы конкурентов",
@@ -259,7 +259,6 @@ const TEXT = {
     foot: "Стр. {n} из {total}", initials: ["Исполнитель", "Заказчик"],
     months: n => ruPlural(n, "месяц", "месяца", "месяцев"),
     days: n => ruPlural(n, "день", "дня", "дней"),
-    workDays: n => ruPlural(n, "рабочий день", "рабочих дня", "рабочих дней"),
     money: (n, fmt) => fmt(n) + " (" + ruWords(n) + ") THB"
   },
 
@@ -287,13 +286,13 @@ const TEXT = {
         "The Provider may terminate this Agreement by written notice if the Client is more than {terminateW} late with payment or breaches the rules for handling the Devices (section 5)."
       ]],
       ["Fees and payment", [
-        "The fees for the Services, the Device rental and add-on modules are set out in the Specification (Appendix 1) in Thai baht and include {vat}% VAT.",
+        "The fees for the Services, the Device rental and add-on modules are set out in the Specification (Appendix 1) in Thai baht.",
         "The monthly fee consists of the software and support fee, the rental fee for each Device and the monthly fees of connected add-on modules. The software and support fee and the Device rental depend on the season: high season is November–March, low season is April–October.",
         "The base package setup fee of {setupWords} is paid on signing this Agreement. The setup fee of an add-on module is paid when the module is connected.",
         "The monthly fee is paid in advance by the {payDayTh} day of the month being paid for, against the Provider's invoice, by bank transfer to the Provider's account stated in this Agreement or in the invoice. For an incomplete first month the fee is charged pro rata to the days from installation.",
         "The prices in the Specification do not change during the term in clause 2.1. On extension, the Provider may change the prices by written notice at least {noticeW} before the end of the term.",
         "If payment is more than {suspendW} late, the Provider may suspend the Services until the debt is paid, after notifying the Client. Suspension does not release the Client from paying the fees.",
-        "The Provider issues tax invoices in accordance with Thai law."
+        "The Provider is not registered for VAT, so no VAT is charged on the prices under this Agreement. The Provider issues invoices and payment receipts. If Thai law requires the Client to withhold tax at source, the Client withholds it from the payment and gives the Provider a withholding tax certificate."
       ]],
       ["Installation and setup", [
         "The Provider installs the Devices, uploads the menu and trains the Client's staff within {launchDays} business days after this Agreement is signed and the setup fee and the materials under clause 6.2 are received.",
@@ -303,7 +302,7 @@ const TEXT = {
       ["Devices", [
         "The Devices remain the Provider's property and are provided to the Client for temporary use for the term of this Agreement. The Client may not sell, pledge or lend the Devices, remove them from the Restaurant, open them or modify their software.",
         "The Client keeps the Devices safe, charged and connected to the Restaurant's Wi-Fi, and ensures that staff and guests handle them with care.",
-        "A fault not caused by the Client is fixed by the Provider free of charge: the Device is repaired or replaced within {repairW} of the Client's report.",
+        "A fault not caused by the Client (a warranty case) is fixed by the Provider free of charge: the Device is repaired or replaced within a period that depends on the nature of the fault, but no more than {repairMaxW} from the Client's report. While the Device is under repair or awaiting replacement, no rental fee is charged for that Device.",
         "If a Device is damaged, lost or stolen through the fault of the Client, its staff or guests, the Client pays for the repair or the value of the Device {deviceValuePart}.",
         "Within {returnW} after this Agreement ends, the Client gives the Provider access to the Restaurant to dismantle and return the Devices in working order, allowing for normal wear and tear."
       ]],
@@ -370,8 +369,8 @@ const TEXT = {
     spec: [
       "Restaurant: {vName}, {vAddr}. Number of Devices: {devices}.",
       "Plan: {tier} — {tierDesc}. Term: {termW} from the installation date{startPart}.",
-      "Monthly fees, THB, incl. {vat}% VAT:",
-      "One-time payments, THB, incl. {vat}% VAT:",
+      "Monthly fees, THB:",
+      "One-time payments, THB:",
       "Estimated monthly payments per year (7 low-season and 5 high-season months): {yearMoney}; for the whole term ({termW}): {termMoney}. One-time payments are not included in these amounts."
     ],
     tierDescStd: "with JET MEDIA network ads, never competitors' ads",
@@ -391,7 +390,6 @@ const TEXT = {
     foot: "Page {n} of {total}", initials: ["Provider", "Client"],
     months: n => n + (n === 1 ? " month" : " months"),
     days: n => n + (n === 1 ? " day" : " days"),
-    workDays: n => n + (n === 1 ? " business day" : " business days"),
     money: (n, fmt) => fmt(n) + " (" + enWords(n) + ") THB"
   },
 
@@ -419,13 +417,13 @@ const TEXT = {
         "ผู้ให้บริการมีสิทธิบอกเลิกสัญญาโดยแจ้งเป็นลายลักษณ์อักษร หากผู้รับบริการชำระเงินล่าช้าเกินกว่า {terminateW} หรือฝ่าฝืนข้อกำหนดเกี่ยวกับการใช้อุปกรณ์ตามหมวด 5"
       ]],
       ["ค่าบริการและการชำระเงิน", [
-        "อัตราค่าบริการ ค่าเช่าอุปกรณ์ และค่าโมดูลเสริม ระบุไว้ในรายละเอียดบริการ (ภาคผนวก 1) เป็นเงินบาท และรวมภาษีมูลค่าเพิ่ม {vat}% แล้ว",
+        "อัตราค่าบริการ ค่าเช่าอุปกรณ์ และค่าโมดูลเสริม ระบุไว้ในรายละเอียดบริการ (ภาคผนวก 1) เป็นเงินบาท",
         "ค่าบริการรายเดือนประกอบด้วยค่าซอฟต์แวร์และการสนับสนุน ค่าเช่าอุปกรณ์แต่ละเครื่อง และค่าบริการรายเดือนของโมดูลเสริมที่เปิดใช้ ค่าซอฟต์แวร์และการสนับสนุนและค่าเช่าอุปกรณ์ขึ้นอยู่กับฤดูกาล: ไฮซีซัน เดือนพฤศจิกายน–มีนาคม โลว์ซีซัน เดือนเมษายน–ตุลาคม",
         "ค่าติดตั้งแพ็กเกจพื้นฐานจำนวน {setupWords} ชำระในวันลงนามในสัญญา ค่าตั้งค่าโมดูลเสริมชำระเมื่อเปิดใช้โมดูลนั้น",
         "ผู้รับบริการชำระค่าบริการรายเดือนล่วงหน้าภายในวันที่ {payDay} ของเดือนที่ใช้บริการ ตามใบแจ้งหนี้ของผู้ให้บริการ โดยโอนเงินเข้าบัญชีของผู้ให้บริการที่ระบุในสัญญาหรือในใบแจ้งหนี้ สำหรับเดือนแรกที่ไม่เต็มเดือน ค่าบริการคิดตามสัดส่วนจำนวนวันนับแต่วันที่ติดตั้ง",
         "อัตราค่าบริการตามรายละเอียดบริการไม่เปลี่ยนแปลงตลอดระยะเวลาตามข้อ 2.1 ในกรณีขยายสัญญา ผู้ให้บริการอาจปรับอัตราค่าบริการได้โดยแจ้งเป็นลายลักษณ์อักษรล่วงหน้าไม่น้อยกว่า {noticeW} ก่อนครบกำหนด",
         "หากผู้รับบริการชำระเงินล่าช้าเกินกว่า {suspendW} ผู้ให้บริการมีสิทธิระงับการให้บริการจนกว่าจะได้รับชำระ โดยแจ้งให้ผู้รับบริการทราบล่วงหน้า การระงับบริการไม่ทำให้ผู้รับบริการพ้นจากหน้าที่ชำระค่าบริการ",
-        "ผู้ให้บริการออกใบกำกับภาษีตามกฎหมายไทย"
+        "ผู้ให้บริการไม่ได้จดทะเบียนภาษีมูลค่าเพิ่ม จึงไม่มีการเรียกเก็บภาษีมูลค่าเพิ่มจากค่าบริการตามสัญญานี้ ผู้ให้บริการออกใบแจ้งหนี้และใบเสร็จรับเงิน หากกฎหมายไทยกำหนดให้ผู้รับบริการต้องหักภาษี ณ ที่จ่าย ผู้รับบริการจะหักภาษีจากยอดชำระและมอบหนังสือรับรองการหักภาษี ณ ที่จ่ายให้แก่ผู้ให้บริการ"
       ]],
       ["การติดตั้งและการตั้งค่า", [
         "ผู้ให้บริการติดตั้งอุปกรณ์ อัปโหลดเมนู และอบรมพนักงานของผู้รับบริการภายใน {launchDays} วันทำการ นับแต่วันลงนามในสัญญาและได้รับค่าติดตั้งและข้อมูลตามข้อ 6.2 ครบถ้วน",
@@ -435,7 +433,7 @@ const TEXT = {
       ["อุปกรณ์", [
         "อุปกรณ์เป็นกรรมสิทธิ์ของผู้ให้บริการ และส่งมอบให้ผู้รับบริการใช้ตลอดอายุสัญญา ผู้รับบริการไม่มีสิทธิขาย จำนำ หรือให้บุคคลอื่นใช้อุปกรณ์ นำอุปกรณ์ออกนอกร้านอาหาร เปิดตัวเครื่อง หรือแก้ไขซอฟต์แวร์",
         "ผู้รับบริการต้องดูแลรักษาอุปกรณ์ ชาร์จแบตเตอรี่ เชื่อมต่อกับ Wi-Fi ของร้านอาหาร และดูแลให้พนักงานและลูกค้าใช้งานอุปกรณ์อย่างระมัดระวัง",
-        "ความชำรุดบกพร่องที่มิได้เกิดจากความผิดของผู้รับบริการ ผู้ให้บริการจะซ่อมแซมหรือเปลี่ยนอุปกรณ์ให้โดยไม่คิดค่าใช้จ่ายภายใน {repairW} นับแต่ได้รับแจ้ง",
+        "ความชำรุดบกพร่องที่มิได้เกิดจากความผิดของผู้รับบริการ (กรณีอยู่ในการรับประกัน) ผู้ให้บริการจะซ่อมแซมหรือเปลี่ยนอุปกรณ์ให้โดยไม่คิดค่าใช้จ่าย ภายในระยะเวลาที่ขึ้นอยู่กับลักษณะความชำรุด แต่ไม่เกิน {repairMaxW} นับแต่วันที่ได้รับแจ้ง ระหว่างที่อุปกรณ์อยู่ระหว่างซ่อมหรือรอเปลี่ยน ผู้ให้บริการจะไม่คิดค่าเช่าอุปกรณ์เครื่องนั้น",
         "หากอุปกรณ์เสียหาย สูญหาย หรือถูกขโมยเนื่องจากความผิดของผู้รับบริการ พนักงาน หรือลูกค้าของผู้รับบริการ ผู้รับบริการต้องชดใช้ค่าซ่อมหรือมูลค่าอุปกรณ์{deviceValuePart}",
         "ภายใน {returnW} นับแต่สัญญาสิ้นสุด ผู้รับบริการต้องอำนวยความสะดวกให้ผู้ให้บริการเข้าไปในร้านอาหารเพื่อถอดและรับคืนอุปกรณ์ในสภาพใช้งานได้ ทั้งนี้ไม่รวมการเสื่อมสภาพตามการใช้งานปกติ"
       ]],
@@ -502,8 +500,8 @@ const TEXT = {
     spec: [
       "ร้านอาหาร: {vName} {vAddr} จำนวนอุปกรณ์ {devices} เครื่อง",
       "แพ็กเกจ: {tier} — {tierDesc} ระยะเวลาสัญญา {termW} นับแต่วันที่ติดตั้งอุปกรณ์{startPart}",
-      "ค่าบริการรายเดือน (บาท รวม VAT {vat}%)",
-      "ค่าใช้จ่ายครั้งเดียว (บาท รวม VAT {vat}%)",
+      "ค่าบริการรายเดือน (บาท)",
+      "ค่าใช้จ่ายครั้งเดียว (บาท)",
       "ประมาณการค่าบริการรายเดือนต่อปี (โลว์ซีซัน 7 เดือน ไฮซีซัน 5 เดือน) {yearMoney} ตลอดอายุสัญญา ({termW}) {termMoney} ไม่รวมค่าใช้จ่ายครั้งเดียว"
     ],
     tierDescStd: "มีโฆษณาเครือข่าย JET MEDIA ไม่มีโฆษณาร้านคู่แข่ง",
@@ -523,7 +521,6 @@ const TEXT = {
     foot: "หน้า {n} จาก {total}", initials: ["ผู้ให้บริการ", "ผู้รับบริการ"],
     months: n => n + " เดือน",
     days: n => n + " วัน",
-    workDays: n => n + " วันทำการ",
     money: (n, fmt) => fmt(n) + " บาท (" + thWords(n) + "บาทถ้วน)"
   }
 };
@@ -727,9 +724,9 @@ function buildVars(T, t){
     termW: '<span class="v">' + esc(T.months(+state.term)) + "</span>",
     cancelMonths: k.cancelMonths, exitFee: k.exitFeeMonths,
     noticeW: T.days(k.noticeDays), renewW: T.months(k.renewMonths), terminateW: T.days(k.terminateDays),
-    suspendW: T.days(k.suspendDays), repairW: T.workDays(k.repairDays), returnW: T.days(k.returnDays),
+    suspendW: T.days(k.suspendDays), repairMaxW: T.days(k.repairMaxDays), returnW: T.days(k.returnDays),
     liabilityW: T.months(k.liabilityMonths), payDay: k.payDay, payDayTh: enOrdinal(k.payDay),
-    launchDays: esc(CONFIG.launchDays), vat: CONFIG.vat,
+    launchDays: esc(CONFIG.launchDays),
     setupWords: money(CONFIG.setupFee),
     startPart: start ? tpl(T.startPart, { start: '<span class="v">' + esc(start) + "</span>" }) : "",
     deviceValuePart: k.deviceValue ? tpl(T.deviceValueFixed, { value: money(k.deviceValue) }) : T.deviceValueMarket,

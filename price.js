@@ -18,7 +18,7 @@ const PRICE_I18N = {
     h1: "Цифровой официант для ресторанов",
     lead: "Планшет на каждом столе: меню с фото на языке гостя, рекомендации шефа и акции, вызов официанта.",
 
-    monthlyH: "Ежемесячная оплата", monthlyUnit: "฿ в месяц, с НДС {vat}%",
+    monthlyH: "Ежемесячная оплата", monthlyUnit: "฿ в месяц",
     stdSub: "с рекламой JET MEDIA, без рекламы конкурентов",
     prmSub: "без сторонней рекламы",
     low: "Низкий сезон", high: "Высокий сезон",
@@ -41,7 +41,7 @@ const PRICE_I18N = {
       "Обновления и техническая поддержка"
     ],
 
-    addonsH: "Дополнительные модули", addonsUnit: "к любому тарифу, ฿ с НДС {vat}%",
+    addonsH: "Дополнительные модули", addonsUnit: "к любому тарифу, ฿",
     addonsCol: "Модуль", addonsSetup: "Настройка", addonsMonthly: "В месяц",
     addonsNote: "Настройка — разово, при подключении модуля: сразу или позже. Абонплата модуля прибавляется к ежемесячной оплате и не зависит от сезона и тарифа. Модулям нужно дополнительное время на настройку — срок зависит от модуля и вашей кассы.",
 
@@ -51,7 +51,7 @@ const PRICE_I18N = {
     terms: [
       "Сезоны: высокий — ноябрь–март ({high} мес.), низкий — апрель–октябрь ({low} мес.).",
       "Устройства — в аренде, по одному на столик. Гарантийная замена — за счёт JET MEDIA.",
-      "Договор — от {minMonths} мес., в первые {cancelMonths} мес. можно отказаться. Оплата ежемесячно, цены в батах с НДС {vat}%."
+      "Договор — от {minMonths} мес., в первые {cancelMonths} мес. можно отказаться. Оплата ежемесячно, цены в тайских батах."
     ],
 
     qr: "Расчёт для вашего ресторана и заявка — на сайте",
@@ -66,7 +66,7 @@ const PRICE_I18N = {
     h1: "A digital waiter for restaurants",
     lead: "A tablet on every table: a photo menu in the guest's language, chef's picks and specials, a waiter call button.",
 
-    monthlyH: "Monthly fees", monthlyUnit: "฿ per month, incl. {vat}% VAT",
+    monthlyH: "Monthly fees", monthlyUnit: "฿ per month",
     stdSub: "with JET MEDIA ads, never competitors' ads",
     prmSub: "no third-party ads",
     low: "Low season", high: "High season",
@@ -89,7 +89,7 @@ const PRICE_I18N = {
       "Updates and technical support"
     ],
 
-    addonsH: "Add-on modules", addonsUnit: "for either plan, ฿ incl. {vat}% VAT",
+    addonsH: "Add-on modules", addonsUnit: "for either plan, ฿",
     addonsCol: "Module", addonsSetup: "Setup", addonsMonthly: "Per month",
     addonsNote: "Setup is one-time, when you add a module — at the start or later. A module's monthly fee is added to the monthly bill and does not depend on the season or plan. Modules take extra time to set up, depending on the module and your POS.",
 
@@ -99,7 +99,7 @@ const PRICE_I18N = {
     terms: [
       "Seasons: high is November–March ({high} months), low is April–October ({low} months).",
       "Devices are rented, one per table. Warranty replacement is at JET MEDIA's expense.",
-      "Contract from {minMonths} months; you can cancel within the first {cancelMonths} months. Monthly billing; prices in Thai baht incl. {vat}% VAT."
+      "Contract from {minMonths} months; you can cancel within the first {cancelMonths} months. Monthly billing; prices in Thai baht."
     ],
 
     qr: "Calculate your restaurant and send a request on our website",
@@ -114,7 +114,7 @@ const PRICE_I18N = {
     h1: "พนักงานเสิร์ฟดิจิทัลสำหรับร้านอาหาร",
     lead: "แท็บเล็ตบนทุกโต๊ะ: เมนูพร้อมรูปภาพในภาษาของลูกค้า เมนูแนะนำจากเชฟและโปรโมชัน ปุ่มเรียกพนักงาน",
 
-    monthlyH: "ค่าบริการรายเดือน", monthlyUnit: "฿ ต่อเดือน รวม VAT {vat}%",
+    monthlyH: "ค่าบริการรายเดือน", monthlyUnit: "฿ ต่อเดือน",
     stdSub: "มีโฆษณา JET MEDIA ไม่มีโฆษณาร้านคู่แข่ง",
     prmSub: "ไม่มีโฆษณาจากภายนอก",
     low: "โลว์ซีซัน", high: "ไฮซีซัน",
@@ -137,7 +137,7 @@ const PRICE_I18N = {
       "อัปเดตและการสนับสนุนทางเทคนิค"
     ],
 
-    addonsH: "โมดูลเสริม", addonsUnit: "เพิ่มได้กับทุกแพ็กเกจ ฿ รวม VAT {vat}%",
+    addonsH: "โมดูลเสริม", addonsUnit: "เพิ่มได้กับทุกแพ็กเกจ ฿",
     addonsCol: "โมดูล", addonsSetup: "ค่าตั้งค่า", addonsMonthly: "ต่อเดือน",
     addonsNote: "ค่าตั้งค่าชำระครั้งเดียวเมื่อเพิ่มโมดูล จะเพิ่มตั้งแต่เริ่มหรือภายหลังก็ได้ ค่าบริการรายเดือนของโมดูลบวกเพิ่มในค่าบริการรายเดือน และไม่ขึ้นกับฤดูกาลหรือแพ็กเกจ การตั้งค่าโมดูลต้องใช้เวลาเพิ่ม ขึ้นกับโมดูลและระบบ POS ของร้าน",
 
@@ -147,7 +147,7 @@ const PRICE_I18N = {
     terms: [
       "ฤดูกาล: ไฮซีซัน พฤศจิกายน–มีนาคม ({high} เดือน) โลว์ซีซัน เมษายน–ตุลาคม ({low} เดือน)",
       "อุปกรณ์เป็นแบบเช่า หนึ่งเครื่องต่อโต๊ะ การเปลี่ยนในระยะรับประกัน JET MEDIA รับผิดชอบค่าใช้จ่าย",
-      "สัญญาขั้นต่ำ {minMonths} เดือน ยกเลิกได้ภายใน {cancelMonths} เดือนแรก ชำระรายเดือน ราคาเป็นเงินบาท รวม VAT {vat}% แล้ว"
+      "สัญญาขั้นต่ำ {minMonths} เดือน ยกเลิกได้ภายใน {cancelMonths} เดือนแรก ชำระรายเดือน ราคาเป็นเงินบาท"
     ],
 
     qr: "คำนวณสำหรับร้านของคุณและส่งคำขอได้บนเว็บไซต์",
@@ -183,8 +183,7 @@ function render(){
   nf = new Intl.NumberFormat(LOCALES[lang], { maximumFractionDigits: 0 });
   const vars = {
     low: num(CONFIG.pricing.low.months), high: num(CONFIG.pricing.high.months),
-    minMonths: num(CONFIG.contract.minMonths), cancelMonths: num(CONFIG.contract.cancelMonths),
-    vat: num(CONFIG.vat)
+    minMonths: num(CONFIG.contract.minMonths), cancelMonths: num(CONFIG.contract.cancelMonths)
   };
 
   document.documentElement.lang = lang;
